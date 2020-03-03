@@ -1,0 +1,11 @@
+#section-02{
+    height: 600px !important;
+}
+#section-02 > .container .owl-carousel{
+    height: 100%;
+}
+
+#titulo{
+    color: #ffffff;
+    margin-top: 100px !important;
+}
