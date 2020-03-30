@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal das Disciplinas</title>
-    <link rel="stylesheet" href="../../resouces/bootstrap/css/bootstrap.min.css" th:href="@{/resources/bootstrap/css/bootstrap.min.css}">
-    <link rel="stylesheet" href="../../resources/bootstrap-dropdown-hover/css/animate.min.css"  th:href="@{/resources/bootstrap-dropdown-hover/css/animate.min.css}">
-    <link rel="stylesheet" href="../../resources/bootstrap-dropdown-hover/css/bootstrap-dropdownhover.min.css" th:href="@{/resources/bootstrap-dropdown-hover/css/bootstrap-dropdownhover.min.css}">
+    <link rel="stylesheet" href="../../resouces/assets/bootstrap/css/bootstrap.min.css" 
+    th:href="@{/resources/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../../resources/assets/bootstrap-dropdown-hover/css/animate.min.css"  
+    th:href="@{/resources/assets/bootstrap-dropdown-hover/css/animate.min.css}">
+    <link rel="stylesheet" href="../../resources/assets/bootstrap-dropdown-hover/css/bootstrap-dropdownhover.min.css" 
+    th:href="@{/resources/assets/bootstrap-dropdown-hover/css/bootstrap-dropdownhover.min.css}">
     
-    <link rel="stylesheet" href="../../resources/OwlCarousel2/dist/css/owl.carousel.min.css" th:href="@{/resources/OwlCarousel2/dist/css/owl.carousel.min.css}">
-    <link rel="stylesheet" href="../../resources/OwlCarousel2/dist/css/owl.theme.default.min.css" 
-    th:href="@{/resources/OwlCarousel2/dist/css/owl.theme.default.min.css}">
-    <link rel="stylesheet" href="../../resources/css/navbar.css" th:href="@{/resources/css/navbar.css}">
-    <link rel="stylesheet" href="../../resources/css/section.desc.css" th:href="@{/resources/css/section.desc.css}">
+    <link rel="stylesheet" href="../../resources/assets/OwlCarousel2/dist/css/owl.carousel.min.css" 
+    th:href="@{/resources/assets/OwlCarousel2/dist/css/owl.carousel.min.css}">
+    <link rel="stylesheet" href="../../resources/assets/OwlCarousel2/dist/css/owl.theme.default.min.css" 
+    th:href="@{/resources/assets/OwlCarousel2/dist/css/owl.theme.default.min.css}">
+    <link rel="stylesheet" href="../../resources/css/navbar.css" 
+    th:href="@{/resources/assets/css/navbar.css}">
+    <link rel="stylesheet" href="../../resources/assets/css/section.desc.css" 
+    th:href="@{/resources/assets/css/section.desc.css}">
     <style>
         .parallax-window {
           min-height: 600px;
@@ -405,16 +411,7 @@
       </div>
     </section>
     <footer class="section footer-creative context-dark">
-      <div class="footer-creative-aside">
-        <div class="container">
-          <p class="rights"><span>JobsFactory</span><span>&nbsp;©&nbsp;</span><span class="copyright-year">2020</span><span>&nbsp;</span><a href="privacy-policy.html">Privacy Policy</a></p>
-        </div>
-      </div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script src="../../resources/bootstrap/js/bootstrap.min.js" th:src="@{/resources/bootstrap/js/bootstrap.min.js}"></script>
-      <script src="../../resources/bootstrap-dropdown-hover/js/bootstrap-dropdownhover.min.js" th:src="@{/resources/bootstrap-dropdown-hover/js/bootstrap-dropdownhover.min.js}" type="text/javascript"></script>
-      <script src="../../resources/OwlCarousel2/dist/js/owl.carousel.min.js" th:src="@{/resources/OwlCarousel2/dist/js/owl.carousel.min.js}"></script>
-      <script src="../../resources/parallax.js-1.5.0/parallax.js" th:src="@{/resources/parallax.js-1.5.0/parallax.js}"></script>
+      <div th:insert="layout/footer :: foot"></div>
       <script>
           $(document).ready(function(){
           $(".owl-carousel").owlCarousel();
