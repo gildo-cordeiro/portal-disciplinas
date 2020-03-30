@@ -1,22 +1,66 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-	<!-- Trabalhar nesse footer logo. Ta uma merda. -->
-	 <div th:fragment="foot">
-	 	<div class="footer-creative-aside">
-        <div class="container">
-          <p class="rights"><span>JobsFactory</span><span>&nbsp;©&nbsp;</span><span class="copyright-year">2020</span><span>&nbsp;</span><a href="privacy-policy.html">Privacy Policy</a></p>
-        </div>
-      </div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script src="../../resources/assets/bootstrap/js/bootstrap.min.js" 
-      th:src="@{/resources/assets/bootstrap/js/bootstrap.min.js}"></script>
-      <script src="../../resources/assets/bootstrap-dropdown-hover/js/bootstrap-dropdownhover.min.js" 
-      th:src="@{/resources/assets/bootstrap-dropdown-hover/js/bootstrap-dropdownhover.min.js}" type="text/javascript"></script>
-      <script src="../../resources/assets/OwlCarousel2/dist/js/owl.carousel.min.js" 
-      th:src="@{/resources/assets/OwlCarousel2/dist/js/owl.carousel.min.js}"></script>
-      <script src="../../resources/assets/parallax.js-1.5.0/parallax.js" 
-      th:src="@{/resources/assets/parallax.js-1.5.0/parallax.js}"></script>
-	 </div> 
+	<div th:fragment="foot">
+		<footer class="page-footer font-small blue pt-4" >
+			<div class="container">
+		  		<div class="container-fluid text-center text-md-left">
+			    	<div class="row">
+			      		<div class="col-md-6 mt-md-0 mt-3">
+							<h5 class="text-uppercase footer-title">Footer Content</h5>
+				        	<p class="footer-descrition">Here you can use rows and columns to organize your footer content.</p>
+						</div>      
+						<hr class="clearfix w-100 d-md-none pb-3">
+						<div class="col-md-3 mb-md-0 mb-3">
+							<h5 class="text-uppercase footer-list-title">Links</h5>
+				       		<ul class="list-unstyled">
+				          		<li>
+				            		<a href="#!">Link 1</a>
+				          		</li>
+				          		<li>
+				            		<a href="#!">Link 2</a>
+				          		</li>
+				          		<li>
+				            		<a href="#!">Link 3</a>
+				          		</li>
+				          		<li>
+				            		<a href="#!">Link 4</a>
+				          		</li>
+				        	</ul>
+				      	</div>
+				       	<div class="col-md-3 mb-md-0 mb-3">
+							<h5 class="text-uppercase footer-list-title">Links</h5>
+							<ul class="list-unstyled">
+					          	<li>
+					            	<a href="#!">Link 1</a>
+					          	</li>
+					          	<li>
+					            	<a href="#!">Link 2</a>
+					          	</li>
+					          	<li>
+					            	<a href="#!">Link 3</a>
+					          	</li>
+				          		<li>
+				            		<a href="#!">Link 4</a>
+				          		</li>
+				        	</ul>
+			      		</div>
+			    	</div>
+			  	</div>
+				<div class="footer-copyright text-center py-3">© 2020 Copyright:
+			    	<a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+			  	</div>
+			</div>
+		</footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="../../resources/assets/bootstrap/js/bootstrap.min.js" 
+		th:src="@{/resources/assets/bootstrap/js/bootstrap.min.js}"></script>
+		<script src="../../resources/assets/bootstrap-dropdown-hover/js/bootstrap-dropdownhover.min.js" 
+		th:src="@{/resources/assets/bootstrap-dropdown-hover/js/bootstrap-dropdownhover.min.js}" type="text/javascript"></script>
+		<script src="../../resources/assets/OwlCarousel2/dist/js/owl.carousel.min.js" 
+		th:src="@{/resources/assets/OwlCarousel2/dist/js/owl.carousel.min.js}"></script>
+		<script src="../../resources/assets/parallax.js-1.5.0/parallax.js" 
+		th:src="@{/resources/assets/parallax.js-1.5.0/parallax.js}"></script>
+	</div> 
 </body>
 </html>

@@ -1,0 +1,7 @@
+.page-footer{
+	background-color: #3f51b5 !important;
+}
+.list-unstyled li a, .footer-title, .footer-descrition, .footer-list-title{
+	color: #ffffff;
+	font-family: serif;
+}
