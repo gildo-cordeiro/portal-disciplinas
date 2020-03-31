@@ -1,6 +1,4 @@
-package com.gildocordeiro.portal.models;
-
-import java.io.Serializable;
+package com.gildocordeiro.portal.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,10 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
-import com.gildocordeiro.portal.enums.TipoSituacao;
+import com.gildocordeiro.portal.domain.enums.TipoSituacao;
 
 @Entity
-public class Historico implements Serializable{
+public class Historico extends Entidade{
 	private static final long serialVersionUID = 1L;
 	
 	@Id

@@ -1,4 +1,4 @@
-package com.gildocordeiro.portal.models;
+package com.gildocordeiro.portal.domain;
 
 import javax.persistence.Entity;
 

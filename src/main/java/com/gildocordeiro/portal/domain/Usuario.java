@@ -1,4 +1,4 @@
-package com.gildocordeiro.portal.models;
+package com.gildocordeiro.portal.domain;
 
 import java.io.Serializable;
 
@@ -7,10 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.gildocordeiro.portal.enums.TipoUsuario;
+import com.gildocordeiro.portal.domain.enums.TipoUsuario;
 
 @Entity
-public abstract class Usuario implements Serializable{	
+public abstract class Usuario extends  Entidade implements Serializable{	
 	private static final long serialVersionUID = 1L;
 	
 	@Id

@@ -1,10 +1,11 @@
 package com.gildocordeiro.portal.repositories;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import com.gildocordeiro.portal.models.Usuario;
+import com.gildocordeiro.portal.domain.Usuario;
 
-public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
+@Repository
+public interface UsuarioRepository extends EntidadeRepository<Usuario>{
 
 
 }

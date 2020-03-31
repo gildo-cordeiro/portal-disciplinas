@@ -1,4 +1,4 @@
-package com.gildocordeiro.portal.models;
+package com.gildocordeiro.portal.domain;
 
 import javax.persistence.Entity;
 
@@ -12,6 +12,8 @@ public class Professor extends Usuario{
 	private Float nota_aula_pratica;
 	private Float nota_aula_EaD;
 	private String email_contato;
+	
+	
 
 	
 	public String getNome() {

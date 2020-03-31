@@ -1,291 +1,238 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portal das Disciplinas</title>
-<link rel="stylesheet"
-	href="../../resouces/assets/bootstrap/css/bootstrap.min.css"
-	th:href="@{/resources/assets/bootstrap/css/bootstrap.min.css}">
-<link rel="stylesheet"
-	href="../../resources/assets/bootstrap-dropdown-hover/css/animate.min.css"
-	th:href="@{/resources/assets/bootstrap-dropdown-hover/css/animate.min.css}">
-<link rel="stylesheet"
-	href="../../resources/assets/bootstrap-dropdown-hover/css/bootstrap-dropdownhover.min.css"
-	th:href="@{/resources/assets/bootstrap-dropdown-hover/css/bootstrap-dropdownhover.min.css}">
-
-<link rel="stylesheet"
-	href="../../resources/assets/OwlCarousel2/dist/css/owl.carousel.min.css"
-	th:href="@{/resources/assets/OwlCarousel2/dist/css/owl.carousel.min.css}">
-<link rel="stylesheet"
-	href="../../resources/assets/OwlCarousel2/dist/css/owl.theme.default.min.css"
-	th:href="@{/resources/assets/OwlCarousel2/dist/css/owl.theme.default.min.css}">
-<link rel="stylesheet" href="../../resources/css/navbar.css"
-	th:href="@{/resources/assets/css/navbar.css}">
-<link rel="stylesheet"
-	href="../../resources/assets/css/section.desc.css"
-	th:href="@{/resources/assets/css/section.desc.css}">
-<link href="../../resources/assets/css/footer.css" rel="stylesheet"
-	th:href="@{/resources/assets/css/footer.css}" />
-<link href="../../resources/assets/css/cards.css" rel="stylesheet"
-	th:href="@{/resources/assets/css/cards.css}" />
-<style>
-.parallax-window {
-	min-height: 600px;
-	background: transparent;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal das Disciplinas</title>
+    <link rel="stylesheet" href="../../resouces/assets/bootstrap/css/bootstrap.min.css" 
+    th:href="@{/resources/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../../resources/assets/bootstrap-dropdown-hover/css/animate.min.css"  
+    th:href="@{/resources/assets/bootstrap-dropdown-hover/css/animate.min.css}">
+    <link rel="stylesheet" href="../../resources/assets/bootstrap-dropdown-hover/css/bootstrap-dropdownhover.min.css" 
+    th:href="@{/resources/assets/bootstrap-dropdown-hover/css/bootstrap-dropdownhover.min.css}">
+    
+    <link rel="stylesheet" href="../../resources/assets/OwlCarousel2/dist/css/owl.carousel.min.css" 
+    th:href="@{/resources/assets/OwlCarousel2/dist/css/owl.carousel.min.css}">
+    <link rel="stylesheet" href="../../resources/assets/OwlCarousel2/dist/css/owl.theme.default.min.css" 
+    th:href="@{/resources/assets/OwlCarousel2/dist/css/owl.theme.default.min.css}">
+    <link rel="stylesheet" href="../../resources/css/navbar.css" 
+    th:href="@{/resources/assets/css/navbar.css}">
+    <link rel="stylesheet" href="../../resources/assets/css/section.desc.css" 
+    th:href="@{/resources/assets/css/section.desc.css}">
+    <link href="../../resources/assets/css/footer.css" rel="stylesheet"  
+    th:href="@{/resources/assets/css/footer.css}"/>
+    <link href="../../resources/assets/css/cards.css" rel="stylesheet"  
+    th:href="@{/resources/assets/css/cards.css}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .parallax-window {
+          min-height: 600px;
+          background: transparent;
+        }
+    </style>
+    
 </head>
 <body>
-	<header class="section page-header parallax-window"
-		data-parallax="scroll"
-		th:data-image-src="@{/resources/imagens/fundo.jpg}"
-		data-image-src="../../resources/imagens/fundo.jpg">
-		<nav class="navbar navbar-expand-lg navbar-light "
-			style="height: 100px;">
-			<!-- Just an image -->
-			<div class="container">
-				<nav class="navbar navbar-light">
-					<a class="navbar-brand" href="#"> <img
-						th:src="@{/resources/imagens/ufrnPreto.png}"
-						src="../../resources/imagens/ufrnPreto.png" width="150"
-						height="150" alt="">
-					</a>
-				</nav>
-				<button class="pull-left navbar-toggler" type="button"
-					data-toggle="collapse" data-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link"
-							href="index.html">Inicio<span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="#">Portal
-								das disciplinas?</a></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> information </a>
-							<div class="dropdown-menu" id="drop">
-								<a class="dropdown-item" href="#">Action</a> <a
-									class="dropdown-item" href="#">Another action</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Something else here</a>
-							</div></li>
-						<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
-						</li>
-					</ul>
-				</div>
-				<div class="navbar navbar-light">
-					<button class="btn btn-primary"><a class="text-white" th:href="@{webapp/WEB-INF/views/layout/loginForm.html}" href="../../webapp/WEB-INF/views/layout/loginForm.html">Login</a></button>
-				</div>
-			</div>
-		</nav>
-		<div class="text-center mt-5">
-			<h1 class="cover-heading">XABLAU</h1>
-			<div class="container">
-				<p class="lead">Cover is a one-page template for building simple
-					and beautiful home pages. Download, edit the text, and add your own
-					fullscreen background photo to make it your own.</p>
-			</div>
-		</div>
-	</header>
-	<section class="section section-md bg-default text-center mt-5">
-		<div class="container">
-			<h3>
-				Bem vindo ao <span class="text-primary">Portal das
-					Disciplinas</span>
-			</h3>
-			<p class="text-spacing-05">Um lugar desenvolvido por otimos
-				profissionais</p>
-			<div
-				class="row justify-content-center align-items-center text-left mt-5">
-				<div class="d-block col-lg-6 col-md-6 ml-0">
-					<div class="col-md-10 col-lg-3 d-flex ml-0">
-						<figure class="figure-responsive block-5 ml-2">
-							<img src="../../resources/imagens/mat.jpg"
-								th:src="@{/resources/imagens/mat.jpg}" alt="" width="150"
-								height="120" />
-						</figure>
-						<figure class="figure-responsive block-5 ml-2">
-							<img src="../../resources/imagens/fisica.jpg"
-								th:src="@{/resources/imagens/fisica.jpg}" alt="" width="150"
-								height="120" class="ml-" />
-						</figure>
-						<figure class="figure-responsive block-5 ml-2">
-							<img src="../../resources/imagens/ciencia.jpg"
-								th:src="@{/resources/imagens/ciencia.jpg}" alt="" width="150"
-								height="120" />
-						</figure>
-					</div>
+  <header class="section page-header parallax-window" data-parallax="scroll" th:data-image-src="@{/resources/imagens/fundo.jpg}" data-image-src="../../resources/imagens/fundo.jpg">
+      <nav class="navbar navbar-expand-lg navbar-light " style="height: 100px;">
+         <!-- Just an image -->
+        <div class="container">
+          <nav class="navbar navbar-light">
+            <a class="navbar-brand" href="#">
+              <img th:src="@{/resources/imagens/ufrnPreto.png}" src="../../resources/imagens/ufrnPreto.png" width="150" height="150" alt="">
+            </a>
+          </nav>
+          <button class="pull-left navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Inicio<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Portal das disciplinas?</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  information
+                </a>
+                <div class="dropdown-menu" id="drop">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+              </li>
+            </ul>
+          </div>
+          <div class="navbar navbar-light">
+          	<a th:href="@{/login}" class="btn btn-lg btn-outline-primary" style="font-family: serif;">
+				ENTRAR
+			</a>
+          </div>
+        </div>
+      </nav>
+      <div class="text-center mt-5">
+        <h1 class="cover-heading">XABLAU</h1>
+        <div class="container">
+          <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+        </div>
+      </div>   
+  </header>
+  <section class="section section-md bg-default text-center mt-5">
+    <div class="container">
+      <h3>Bem vindo ao <span class="text-primary">Portal das Disciplinas</span></h3>
+      <p class="text-spacing-05">Um lugar desenvolvido por otimos profissionais</p>
+      <div class="row justify-content-center align-items-center text-left mt-5">
+        <div class="d-block col-lg-6 col-md-6 ml-0">
+          <div class="col-md-10 col-lg-3 d-flex ml-0">
+            <figure class="figure-responsive block-5 ml-2">
+              <img src="../../resources/imagens/mat.jpg" th:src="@{/resources/imagens/mat.jpg}" alt="" width="150" height="120"/>
+            </figure>
+            <figure class="figure-responsive block-5 ml-2">
+              <img src="../../resources/imagens/fisica.jpg" th:src="@{/resources/imagens/fisica.jpg}" alt="" width="150" height="120" class="ml-"/>
+            </figure>
+            <figure class="figure-responsive block-5 ml-2">
+              <img src="../../resources/imagens/ciencia.jpg" th:src="@{/resources/imagens/ciencia.jpg}" alt="" width="150" height="120"/>
+            </figure>
+          </div>
+          
+          <div class="col-md-10 col-lg-3 d-flex">
+            <figure class="figure-responsive block-5 ml-2">
+              <img th:src="@{/resources/imagens/trabalhos_escolares.png}" src="../../resources/imagens/trabalhos_escolares.png" alt="" width="150" height="120"/>
+            </figure>
+            <figure class="figure-responsive block-5 ml-2">
+              <img src="../../resources/imagens/cabecaEngrenagem.jpg" th:src="@{/resources/imagens/cabecaEngrenagem.jpg}" alt="" width="150" height="120" class="ml-"/>
+            </figure>
+            <figure class="figure-responsive block-5 ml-2">
+              <img src="../../resources/imagens/program.jpg" th:src="@{/resources/imagens/program.jpg}" alt="" width="150" height="120"/>
+            </figure>
+          </div>
+        </div>
 
-					<div class="col-md-10 col-lg-3 d-flex">
-						<figure class="figure-responsive block-5 ml-2">
-							<img th:src="@{/resources/imagens/trabalhos_escolares.png}"
-								src="../../resources/imagens/trabalhos_escolares.png" alt=""
-								width="150" height="120" />
-						</figure>
-						<figure class="figure-responsive block-5 ml-2">
-							<img src="../../resources/imagens/cabecaEngrenagem.jpg"
-								th:src="@{/resources/imagens/cabecaEngrenagem.jpg}" alt=""
-								width="150" height="120" class="ml-" />
-						</figure>
-						<figure class="figure-responsive block-5 ml-2">
-							<img src="../../resources/imagens/program.jpg"
-								th:src="@{/resources/imagens/program.jpg}" alt="" width="150"
-								height="120" />
-						</figure>
-					</div>
-				</div>
+        <div class="col-md-10 col-lg-6 border border-top-primary d-flex">
+          <div class="row row-50 row-xl-70 ">
+            <div class="col-sm-6">
+              <article class="box-line box-line_sm">
+                  <div class="box-line-inner">
+                    <div class="box-line-icon icon mercury-icon-group"></div>
+                    <h5 class="box-line-title">Conheça suas disciplinas de forma divertida</h5>
+                  </div>
+              </article>
+            </div>
+            <div class="col-sm-6 ">
+              <article class="box-line box-line_sm">
+                <div class="box-line-inner">
+                  <div class="box-line-icon icon mercury-icon-partners"></div>
+                  <h5 class="box-line-title">Descubra quais matérias mais combinam com você</h5>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6">
+              <article class="box-line box-line_sm">
+                  <div class="box-line-inner">
+                  <div class="box-line-icon icon mercury-icon-chat"></div>
+                  <h5 class="box-line-title">com nosso ssitema de match</h5>
+                  </div>
+              </article>
+            </div>
+            <div class="col-sm-6">
+              <article class="box-line box-line_sm">
+                <div class="box-line-inner">
+                  <div class="box-line-icon icon mercury-icon-target"></div>
+                  <h5 class="box-line-title">se divvirta enquanto conhece seu curso</h5>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section-md bg-default text-center mt-5 rallax-window" data-parallax="scroll" data-image-src="../../resources/imagens/ti.png" th:data-image-src="@{/resources/imagens/ti.png}" id="section-02">
+    <div class="container container-fullwidth">
+      <br/>
 
-				<div class="col-md-10 col-lg-6 border border-top-primary d-flex">
-					<div class="row row-50 row-xl-70 ">
-						<div class="col-sm-6">
-							<article class="box-line box-line_sm">
-								<div class="box-line-inner">
-									<div class="box-line-icon icon mercury-icon-group"></div>
-									<h5 class="box-line-title">Conheça suas disciplinas de
-										forma divertida</h5>
-								</div>
-							</article>
-						</div>
-						<div class="col-sm-6 ">
-							<article class="box-line box-line_sm">
-								<div class="box-line-inner">
-									<div class="box-line-icon icon mercury-icon-partners"></div>
-									<h5 class="box-line-title">Descubra quais matérias mais
-										combinam com você</h5>
-								</div>
-							</article>
-						</div>
-						<div class="col-sm-6">
-							<article class="box-line box-line_sm">
-								<div class="box-line-inner">
-									<div class="box-line-icon icon mercury-icon-chat"></div>
-									<h5 class="box-line-title">com nosso ssitema de match</h5>
-								</div>
-							</article>
-						</div>
-						<div class="col-sm-6">
-							<article class="box-line box-line_sm">
-								<div class="box-line-inner">
-									<div class="box-line-icon icon mercury-icon-target"></div>
-									<h5 class="box-line-title">se divvirta enquanto conhece
-										seu curso</h5>
-								</div>
-							</article>
-						</div>
-					</div>
+      <div class=" border bg-trasparente border-dark rounded ">
+        <h3 id="titulo text-black" class="mt-5">Nossa Forma de te apresentar as Disciplinas</h3>
+        <div class="owl-carousel owl-carousel-stretch owl-loaded  mt-5" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="3" data-xl-items="5" data-xxl-items="6" data-dots="true" data-nav="false" data-stage-padding="1" data-loop="false" data-margin="26" data-md-margin="20" data-lg-margin="26" data-autoplay="false" data-autoplay-timeout="3500" data-mouse-drag="false">
+          <div class="owl-stage-outer">
+            <div class="owl-stage" style="margin-bottom: 20px">
+              <div class="owl-item active">
+                <div class="card" style="width: 18rem;">
+				  <img class="card-img-top" th:src="@{/resources/imagens/ciencia.jpg}" alt="Card image cap">
+				  <div class="card-body">
+				    <h5 class="card-title">Card title</h5>
+				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				    <a href="#" class="btn btn-primary">Go somewhere</a>
+				  </div>
 				</div>
-			</div>
-		</div>
-	</section>
-	<section
-		class="section section-md bg-default text-center mt-5 rallax-window"
-		data-parallax="scroll" data-image-src="../../resources/imagens/ti.png"
-		th:data-image-src="@{/resources/imagens/ti.png}" id="section-02">
-		<div class="container container-fullwidth">
-			<br />
-
-			<div class=" border bg-trasparente border-dark rounded ">
-				<h3 id="titulo text-black" class="mt-5">Nossa Forma de te
-					apresentar as Disciplinas</h3>
-				<div class="owl-carousel owl-carousel-stretch owl-loaded  mt-5"
-					data-items="1" data-sm-items="2" data-md-items="3"
-					data-lg-items="3" data-xl-items="5" data-xxl-items="6"
-					data-dots="true" data-nav="false" data-stage-padding="1"
-					data-loop="false" data-margin="26" data-md-margin="20"
-					data-lg-margin="26" data-autoplay="false"
-					data-autoplay-timeout="3500" data-mouse-drag="false">
-					<div class="owl-stage-outer">
-						<div class="owl-stage" style="margin-bottom: 20px">
-							<div class="owl-item active">
-								<div class="card" style="width: 18rem;">
-									<img class="card-img-top"
-										th:src="@{/resources/imagens/ciencia.jpg}"
-										alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title">Card title</h5>
-										<p class="card-text">Some quick example text to build on
-											the card title and make up the bulk of the card's content.</p>
-										<a href="#" class="btn btn-primary">Go somewhere</a>
-									</div>
-								</div>
-							</div>
-							<div class="owl-item active">
-								<div class="card" style="width: 18rem;">
-									<img class="card-img-top"
-										th:src="@{/resources/imagens/ciencia.jpg}"
-										alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title">Card title</h5>
-										<p class="card-text">Some quick example text to build on
-											the card title and make up the bulk of the card's content.</p>
-										<a href="#" class="btn btn-primary">Go somewhere</a>
-									</div>
-								</div>
-							</div>
-							<div class="owl-item active">
-								<div class="card" style="width: 18rem;">
-									<img class="card-img-top"
-										th:src="@{/resources/imagens/ciencia.jpg}"
-										alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title">Card title</h5>
-										<p class="card-text">Some quick example text to build on
-											the card title and make up the bulk of the card's content.</p>
-										<a href="#" class="btn btn-primary">Go somewhere</a>
-									</div>
-								</div>
-							</div>
-							<div class="owl-item active">
-								<div class="card" style="width: 18rem;">
-									<img class="card-img-top"
-										th:src="@{/resources/imagens/ciencia.jpg}"
-										alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title">Card title</h5>
-										<p class="card-text">Some quick example text to build on
-											the card title and make up the bulk of the card's content.</p>
-										<a href="#" class="btn btn-primary">Go somewhere</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="owl-nav">
-						<div class="owl-prev"></div>
-						<div class="owl-next"></div>
-					</div>
-					<div class="owl-dots">
-						<div class="owl-dot active">
-							<span></span>
-						</div>
-						<div class="owl-dot">
-							<span></span>
-						</div>
-					</div>
+              </div>
+              <div class="owl-item active">
+                 <div class="card" style="width: 18rem;">
+				  <img class="card-img-top" th:src="@{/resources/imagens/ciencia.jpg}" alt="Card image cap">
+				  <div class="card-body">
+				    <h5 class="card-title">Card title</h5>
+				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				    <a href="#" class="btn btn-primary">Go somewhere</a>
+				  </div>
 				</div>
-			</div>
-		</div>
-	</section>
-	<section class="section section-sm bg-default mt-5">
-		<!-- Pensar no que vamos coloar aqui. -->
-	</section>
-	<footer class="section footer-creative context-dark">
-		<div th:insert="layout/footer :: foot"></div>
-		<script>
-			$(document).ready(function() {
-				$(".owl-carousel").owlCarousel();
-			});
-			$(function() {
-				$('.dropdown-toggle').dropdown();
-			});
-		</script>
-	</footer>
+              </div>
+              <div class="owl-item active">
+                 <div class="card" style="width: 18rem;">
+				  <img class="card-img-top" th:src="@{/resources/imagens/ciencia.jpg}" alt="Card image cap">
+				  <div class="card-body">
+				    <h5 class="card-title">Card title</h5>
+				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				    <a href="#" class="btn btn-primary">Go somewhere</a>
+				  </div>
+				</div>
+              </div>
+              <div class="owl-item active">
+                 <div class="card" style="width: 18rem;">
+				  <img class="card-img-top" th:src="@{/resources/imagens/ciencia.jpg}" alt="Card image cap">
+				  <div class="card-body">
+				    <h5 class="card-title">Card title</h5>
+				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				    <a href="#" class="btn btn-primary">Go somewhere</a>
+				  </div>
+				</div>
+              </div>
+            </div>
+          </div>
+          <div class="owl-nav">
+              <div class="owl-prev"></div>
+              <div class="owl-next"></div>
+          </div>
+          <div class="owl-dots">
+              <div class="owl-dot active">
+                  <span></span>
+              </div>
+              <div class="owl-dot">
+                  <span></span>
+              </div>
+          </div>
+        </div>
+    </div>
+    </div>
+  </section>
+  <section class="section section-sm bg-default mt-5">
+       <!-- Pensar no que vamos coloar aqui. -->
+  </section>
+   <footer class="section footer-creative context-dark">
+     <div th:insert="layout/footer :: foot"></div>
+     <script>
+         $(document).ready(function(){
+         $(".owl-carousel").owlCarousel();
+         });
+         $(function () {
+           $('.dropdown-toggle').dropdown();
+         }); 
+     </script>
+   </footer>
 </body>
 </html>

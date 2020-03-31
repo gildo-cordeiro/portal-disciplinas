@@ -1,6 +1,4 @@
-package com.gildocordeiro.portal.models;
-
-import java.io.Serializable;
+package com.gildocordeiro.portal.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,10 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
-import com.gildocordeiro.portal.enums.TipoMultimidia;
+import com.gildocordeiro.portal.domain.enums.TipoMultimidia;
 
 @Entity
-public class Multimidia implements Serializable {
+public class Multimidia extends Entidade{
 	private static final long serialVersionUID = 1L;
 	
 	

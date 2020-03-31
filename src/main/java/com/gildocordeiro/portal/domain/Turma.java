@@ -1,6 +1,4 @@
-package com.gildocordeiro.portal.models;
-
-import java.io.Serializable;
+package com.gildocordeiro.portal.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Turma implements Serializable{
+public class Turma extends Entidade{
 	private static final long serialVersionUID = 1L;
 	
 	@Id

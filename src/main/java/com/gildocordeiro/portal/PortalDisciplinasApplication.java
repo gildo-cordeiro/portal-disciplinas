@@ -56,8 +56,4 @@ public class PortalDisciplinasApplication implements WebApplicationInitializer{
                 EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE, DispatcherType.ASYNC) :
                 EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE));
     }
-    
-	public void run(String... args) throws Exception {
-		
-	}
 }

@@ -1,4 +1,4 @@
-package com.gildocordeiro.portal.enums;
+package com.gildocordeiro.portal.domain.enums;
 
 public enum TipoMultimidia {
 	
