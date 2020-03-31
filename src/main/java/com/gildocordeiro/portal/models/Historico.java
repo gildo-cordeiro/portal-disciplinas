@@ -18,7 +18,7 @@ public class Historico implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private Integer frquencia;
+	private Integer frequencia;
 	private Float nota_minima;
 	private Float media;
 	private Integer situacao;
@@ -39,10 +39,10 @@ public class Historico implements Serializable{
 		this.id = id;
 	}
 	public Integer getFrquencia() {
-		return frquencia;
+		return frequencia;
 	}
 	public void setFrquencia(Integer frquencia) {
-		this.frquencia = frquencia;
+		this.frequencia = frquencia;
 	}
 	public Float getNota_minima() {
 		return nota_minima;
