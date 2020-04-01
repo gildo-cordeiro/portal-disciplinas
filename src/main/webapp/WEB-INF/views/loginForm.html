@@ -2,39 +2,42 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Login Form</title>
-  <link rel="stylesheet" href="../../resouces/assets/bootstrap/css/bootstrap.min.css" 
+  <link rel="stylesheet" href="../../resources/assets/bootstrap/css/bootstrap.min.css" 
     th:href="@{/resources/assets/bootstrap/css/bootstrap.min.css}">    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="../../resources/assets/css/login.css" 
+    th:href="@{/resources/assets/css/login.css}">  
+    <link rel="stylesheet" href="../../resources/assets/css/footer.css" 
+    th:href="@{/resources/assets/css/footer.css}">    
 </head>
 <body>
-	<div class="sidenav">
-		<div class="login-main-text">
-			<h2>
-				Application<br> Login Page
-			</h2>
-			<p>Login or register from here to access.</p>
-		</div>
-	</div>
-	<div class="main">
-		<div class="col-md-6 col-sm-12">
-			<div class="login-form">
-				<form>
-					<div class="form-group">
-						<label>User Name</label> <input type="text" class="form-control"
-							placeholder="User Name">
-					</div>
-					<div class="form-group">
-						<label>Password</label> <input type="password"
-							class="form-control" placeholder="Password">
-					</div>
-					<button type="submit" class="btn btn-black">Login</button>
-					<a th:href="@{/registrar}" class="btn btn-secondary">Register</a>
+	<div class="col-md-12 col-sm-12">
+		<div class="login-wrap">
+			<div class="login-html">
+				<form th:action="@{/salvarUsuario}" th:object="${usuario}" method="post">
+	  				<div class="row">
+		  				<div class="col-md-12">
+			  				<div class="form-group">
+							    <label for="email">Email</label>
+							    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required="required">
+						  	</div>
+						  	<div class="form-group">
+						    	<label for="senha">Senha</label>
+						    	<input type="password" class="form-control" id="senha" required="required">
+						  	</div>
+		  				</div>
+	  				</div>
+				  	<div class="row mt-3">
+				  		<div class="col-md-6">
+				  			<button type="submit" class="btn btn-success btn-lg btn-block">Entrar</button>
+				  		</div>
+				  		<div class="col-md-6">
+				  			<a  th:href="@{/registrar}" class="btn btn-secondary btn-lg btn-block">Criar Conta</a>
+				  		</div>
+				  	</div>
 				</form>
 			</div>
 		</div>
 	</div>
-	<footer class="section footer-creative context-dark">
-    	<div th:insert="layout/footer :: foot"></div>
-    </footer>
 </body>
 </html>

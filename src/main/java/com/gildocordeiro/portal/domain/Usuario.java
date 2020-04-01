@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import com.gildocordeiro.portal.domain.enums.TipoUsuario;
 
 @Entity
-public abstract class Usuario implements Serializable{	
+public class Usuario implements Serializable{	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
