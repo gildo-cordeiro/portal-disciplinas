@@ -1,16 +1,18 @@
 package com.gildocordeiro.portal.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 import com.gildocordeiro.portal.domain.enums.TipoSituacao;
 
 @Entity
-public class Historico extends Entidade{
+public class Historico implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -21,11 +23,11 @@ public class Historico extends Entidade{
 	private Float media;
 	private Integer situacao;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "id_aluno")
 	private Aluno aluno;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "id_disciplina")
 	private Disciplina disciplina;
 	

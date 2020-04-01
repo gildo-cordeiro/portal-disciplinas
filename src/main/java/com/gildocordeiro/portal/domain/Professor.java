@@ -1,9 +1,13 @@
 package com.gildocordeiro.portal.domain;
 
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Professor extends Usuario{
+public class Professor extends Usuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private String nome;
@@ -13,8 +17,28 @@ public class Professor extends Usuario{
 	private Float nota_aula_EaD;
 	private String email_contato;
 	
+	@OneToMany(mappedBy = "professor")
+	private List<Turma> turmas;
 	
+	@OneToMany(mappedBy = "professor")
+	private List<Multimidia> multimidias;
+	
+	
+	public List<Multimidia> getMultimidias() {
+		return multimidias;
+	}
 
+	public void setMultimidias(List<Multimidia> multimidias) {
+		this.multimidias = multimidias;
+	}
+
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
+
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
+	}
 	
 	public String getNome() {
 		return nome;

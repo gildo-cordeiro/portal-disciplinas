@@ -1,4 +1,4 @@
-package com.gildocordeiro.portal.resources;
+package com.gildocordeiro.portal.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gildocordeiro.portal.domain.Professor;
-import com.gildocordeiro.portal.services.UsuarioService;
+import com.gildocordeiro.portal.service.UsuarioService;
 
 @RestController
 public class IndexController {

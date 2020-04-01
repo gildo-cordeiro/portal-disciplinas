@@ -1,16 +1,18 @@
 package com.gildocordeiro.portal.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 import com.gildocordeiro.portal.domain.enums.TipoMultimidia;
 
 @Entity
-public class Multimidia extends Entidade{
+public class Multimidia implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -22,11 +24,11 @@ public class Multimidia extends Entidade{
 	private String link;
 	private Integer tipo;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "id_professor")
 	private Professor professor; 
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "id_disciplina")
 	private Disciplina disciplina;
 

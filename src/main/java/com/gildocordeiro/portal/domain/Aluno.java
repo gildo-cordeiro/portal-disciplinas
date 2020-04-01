@@ -1,9 +1,13 @@
 package com.gildocordeiro.portal.domain;
 
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Aluno extends Usuario{
+public class Aluno extends Usuario implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -12,6 +16,17 @@ public class Aluno extends Usuario{
 	private Float notas_apresentacao_oral;
 	private Float notas_trabalho_grupo;	
 	
+	@OneToMany(mappedBy = "aluno")
+	private List<Historico> historicos;
+	
+	public List<Historico> getHistoricos() {
+		return historicos;
+	}
+
+	public void setHistoricos(List<Historico> historicos) {
+		this.historicos = historicos;
+	}
+
 
 	public String getNome() {
 		return nome;

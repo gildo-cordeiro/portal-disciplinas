@@ -34,52 +34,11 @@
 </head>
 <body>
   <header class="section page-header parallax-window" data-parallax="scroll" th:data-image-src="@{/resources/imagens/fundo.jpg}" data-image-src="../../resources/imagens/fundo.jpg">
-      <nav class="navbar navbar-expand-lg navbar-light " style="height: 100px;">
-         <!-- Just an image -->
-        <div class="container">
-          <nav class="navbar navbar-light">
-            <a class="navbar-brand" href="#">
-              <img th:src="@{/resources/imagens/ufrnPreto.png}" src="../../resources/imagens/ufrnPreto.png" width="150" height="150" alt="">
-            </a>
-          </nav>
-          <button class="pull-left navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Inicio<span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Portal das disciplinas?</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  information
-                </a>
-                <div class="dropdown-menu" id="drop">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-              </li>
-            </ul>
-          </div>
-          <div class="navbar navbar-light">
-          	<a th:href="@{/login}" class="btn btn-lg btn-outline-primary" style="font-family: serif;">
-				ENTRAR
-			</a>
-          </div>
-        </div>
-      </nav>
+      <div th:insert="layout/header :: head"></div>
       <div class="text-center mt-5">
-        <h1 class="cover-heading">XABLAU</h1>
+        <h1 class="cover-heading">Portal das Disciplinas - IMD</h1>
         <div class="container">
-          <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+          <p class="lead">Não há mais motivos para ficar com duvidas sobre as disciplinas ofertadas no Instituto Metropole Digital. Nosso site dispõe de informações que podem ser crucias</p>
         </div>
       </div>   
   </header>
@@ -114,40 +73,24 @@
           </div>
         </div>
 
-        <div class="col-md-10 col-lg-6 border border-top-primary d-flex">
-          <div class="row row-50 row-xl-70 ">
-            <div class="col-sm-6">
-              <article class="box-line box-line_sm">
-                  <div class="box-line-inner">
-                    <div class="box-line-icon icon mercury-icon-group"></div>
-                    <h5 class="box-line-title">Conheça suas disciplinas de forma divertida</h5>
-                  </div>
-              </article>
+        <div class="col-md-10 col-lg-6">
+          <div class="row row-50 row-xl-70">
+            <div class="row">
+	            <div class="col-sm-6">
+	             	<h5 class="">Conheça suas disciplinas de forma divertida</h5>
+	            </div>
+	            <div class="col-sm-6 ">
+	                <h5 class="">Descubra quais matérias mais combinam com você</h5>
+	            </div>
             </div>
-            <div class="col-sm-6 ">
-              <article class="box-line box-line_sm">
-                <div class="box-line-inner">
-                  <div class="box-line-icon icon mercury-icon-partners"></div>
-                  <h5 class="box-line-title">Descubra quais matérias mais combinam com você</h5>
-                </div>
-              </article>
-            </div>
-            <div class="col-sm-6">
-              <article class="box-line box-line_sm">
-                  <div class="box-line-inner">
-                  <div class="box-line-icon icon mercury-icon-chat"></div>
-                  <h5 class="box-line-title">com nosso ssitema de match</h5>
-                  </div>
-              </article>
-            </div>
-            <div class="col-sm-6">
-              <article class="box-line box-line_sm">
-                <div class="box-line-inner">
-                  <div class="box-line-icon icon mercury-icon-target"></div>
-                  <h5 class="box-line-title">se divvirta enquanto conhece seu curso</h5>
-                </div>
-              </article>
-            </div>
+           	<div class="row mt-2 ">
+          	 	<div class="col-sm-6">
+	                <h5 class="box-line-title">com nosso sistema de match</h5>
+	            </div>
+	            <div class="col-sm-6">
+	                <h5 class="box-line-title">se divvirta enquanto conhece seu curso</h5>
+	            </div>
+           	</div>
           </div>
         </div>
       </div>

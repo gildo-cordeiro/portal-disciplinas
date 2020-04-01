@@ -1,18 +1,81 @@
 package com.gildocordeiro.portal.domain;
 
-public class Disciplina extends Entidade {
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Disciplina implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-	@Override
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	private String nome;
+	private String descricao;
+	
+	@OneToMany(mappedBy = "disciplina")
+	private List<Historico> historicos;
+	
+	@OneToMany(mappedBy = "disciplina")
+	private List<Turma> turmas;
+	
+	@OneToMany(mappedBy = "disciplina")
+	private List<Multimidia> multimidias;
+	
+	
+	public List<Multimidia> getMultimidias() {
+		return multimidias;
+	}
+
+	public void setMultimidias(List<Multimidia> multimidias) {
+		this.multimidias = multimidias;
+	}
+
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
+
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
+	}
+
 	public Integer getId() {
-		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 
-	@Override
 	public void setId(Integer id) {
-		// TODO Auto-generated method stub
-		
+		this.id = id;
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public List<Historico> getHistoricos() {
+		return historicos;
+	}
+
+	public void setHistoricos(List<Historico> historicos) {
+		this.historicos = historicos;
+	}
+	
+	
 }

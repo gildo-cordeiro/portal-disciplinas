@@ -1,14 +1,16 @@
 package com.gildocordeiro.portal.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Turma extends Entidade{
+public class Turma implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -20,11 +22,11 @@ public class Turma extends Entidade{
 	private Float nota_aula_pratica;
 	private Float nota_aula_EaD;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "id_professor")
 	private Professor professor;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "id_disciplina")
 	private Disciplina disciplina;
 	
