@@ -35,7 +35,7 @@ public class JpaConfig {
 		properties.put("hibernate.show_sql", true);
 		properties.put("hibernate.format_sql", true);
 		properties.put("hibernate.use_sql_comments", true);
-		properties.put("javax.persistence.schema-generation.database.action", "create-drop");		
+		properties.put("javax.persistence.schema-generation.database.action", "update");//create-drop
 		
 		LocalContainerEntityManagerFactoryBean bean = new LocalContainerEntityManagerFactoryBean();
 		bean.setDataSource(dataSource);
@@ -58,7 +58,6 @@ public class JpaConfig {
 		return bean;
 	}
 	
-	//Esse amorzinho que salvou o dia S2
 	//Link: https://www.baeldung.com/spring-boot-configure-data-source-programmatic
 	@Bean
 	public DataSource getDataSource() {

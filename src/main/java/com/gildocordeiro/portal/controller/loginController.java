@@ -22,14 +22,14 @@ public class loginController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login() {
-		model = new ModelAndView("loginForm.html");
+		model = new ModelAndView("login/loginForm.html");
 		model.addObject("usuario", new Usuario());
 		return model;
 	}
 	
 	@RequestMapping(value = "/registrar", method = RequestMethod.GET)
 	public ModelAndView registrar() {
-		model = new ModelAndView("registrarForm.html");
+		model = new ModelAndView("login/registrarForm.html");
 		model.addObject("professor", new Professor());
 		return model;
 	}
