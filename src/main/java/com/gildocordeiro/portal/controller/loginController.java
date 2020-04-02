@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.gildocordeiro.portal.domain.Professor;
 import com.gildocordeiro.portal.domain.Usuario;
 import com.gildocordeiro.portal.service.UsuarioService;
 
@@ -30,13 +29,15 @@ public class loginController {
 	@RequestMapping(value = "/registrar", method = RequestMethod.GET)
 	public ModelAndView registrar() {
 		model = new ModelAndView("login/registrarForm.html");
-		model.addObject("professor", new Professor());
+		model.addObject("usuario", new Usuario());
 		return model;
 	}
 	
 	@RequestMapping(value = "/salvarUsuario", method = RequestMethod.POST)
-	public ModelAndView salvarUsuario(@ModelAttribute(value = "professor") Professor professor, BindingResult bindingResult) {
-		usuarioService.salvarUsuario(professor);
-		return null;
+	public ModelAndView salvarUsuario(@ModelAttribute(value = "usuario") Usuario usuario, BindingResult bindingResult) {
+		usuarioService.salvarUsuario(usuario);
+		model = new ModelAndView("login/registrarForm.html");
+		model.addObject("usuario", new Usuario());
+		return model;
 	}
 }

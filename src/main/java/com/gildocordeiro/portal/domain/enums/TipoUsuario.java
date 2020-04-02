@@ -3,8 +3,8 @@ package com.gildocordeiro.portal.domain.enums;
 public enum TipoUsuario {
 	
 	ADMINISTRADOR(1, "ADM"),
-	PROFESSOR(1, "Professor"),
-	ALUNO(3, "Aluno");
+	PROFESSOR(2, "PROFESSOR"),
+	ALUNO(3, "ALUNO");
 	
 	private int codigo;
 	private String descricao;
@@ -16,23 +16,22 @@ public enum TipoUsuario {
 	}
 
 
+	public String getDescricao() {
+		return descricao;
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}
 
-
-	public String getDescricao() {
-		return descricao;
-	}
-	
-	public static TipoUsuario toEnum(Integer cod) {
+	public static Integer toEnum(Integer cod) {
 		if(cod == null) {
 			return null;
 		}
 		
 		for (TipoUsuario usuario : TipoUsuario.values()) {
 			if (cod.equals(usuario.getCodigo())) {
-				return usuario;
+				return usuario.codigo;
 			}
 		}
 		throw new IllegalArgumentException("Id invalido: "+cod); 

@@ -10,8 +10,6 @@ import javax.persistence.OneToMany;
 public class Professor extends Usuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-	private String nome;
-	private String email;
 	private Float nota_aula_expositiva;
 	private Float nota_aula_pratica;
 	private Float nota_aula_EaD;
@@ -38,22 +36,6 @@ public class Professor extends Usuario implements Serializable{
 
 	public void setTurmas(List<Turma> turmas) {
 		this.turmas = turmas;
-	}
-	
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public Float getNota_aula_expositiva() {
