@@ -36,7 +36,7 @@ public class loginController {
 	@RequestMapping(value = "/salvarUsuario", method = RequestMethod.POST)
 	public ModelAndView salvarUsuario(@ModelAttribute(value = "usuario") Usuario usuario, BindingResult bindingResult) {
 		usuarioService.salvarUsuario(usuario);
-		model = new ModelAndView("login/registrarForm.html");
+		model = new ModelAndView("login/loginForm.html");
 		model.addObject("usuario", new Usuario());
 		return model;
 	}

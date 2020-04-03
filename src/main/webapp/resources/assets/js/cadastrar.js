@@ -15,8 +15,8 @@ $(document).ready(function() {
     	if($("#senha").val() == "" || $("#confirmSenha").val() == ""){
     		alert("O(s) campo(s) da(s) senha(s) não pode(m) estar vazio(s)");
     		return false;
-    	}else if($("#senha").val() == $("#confirmSenha").val()){
-    		alert("As senhas não coincidem");
+    	}else if($("#senha").val() !== $("#confirmSenha").val()){
+    		alert( $("#senha").val(), $("confirmSenha").val);
     		return false;
     	}
 
