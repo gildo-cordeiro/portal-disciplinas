@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal das Disciplinas</title>
-    <link rel="stylesheet" href="../../resouces/assets/bootstrap/css/bootstrap.min.css" 
+    <link rel="stylesheet" href="../../resources/assets/bootstrap/css/bootstrap.min.css" 
     th:href="@{/resources/assets/bootstrap/css/bootstrap.min.css}">
     <link rel="stylesheet" href="../../resources/assets/bootstrap-dropdown-hover/css/animate.min.css"  
     th:href="@{/resources/assets/bootstrap-dropdown-hover/css/animate.min.css}">
@@ -15,7 +15,7 @@
     th:href="@{/resources/assets/OwlCarousel2/dist/css/owl.carousel.min.css}">
     <link rel="stylesheet" href="../../resources/assets/OwlCarousel2/dist/css/owl.theme.default.min.css" 
     th:href="@{/resources/assets/OwlCarousel2/dist/css/owl.theme.default.min.css}">
-    <link rel="stylesheet" href="../../resources/css/navbar.css" 
+    <link rel="stylesheet" href="../../resources/assets/css/navbar.css" 
     th:href="@{/resources/assets/css/navbar.css}">
     <link rel="stylesheet" href="../../resources/assets/css/section.desc.css" 
     th:href="@{/resources/assets/css/section.desc.css}">
@@ -33,14 +33,18 @@
     
 </head>
 <body>
-  <header class="section page-header parallax-window" data-parallax="scroll" th:data-image-src="@{/resources/imagens/fundo.jpg}" data-image-src="../../resources/imagens/fundo.jpg">
-      <div th:insert="layout/header :: head"></div>
-      <div class="text-center mt-5">
-        <h1 class="cover-heading">Portal das Disciplinas - IMD</h1>
-        <div class="container">
-          <p class="lead">Não há mais motivos para ficar com duvidas sobre as disciplinas ofertadas no Instituto Metropole Digital. Nosso site dispõe de informações que podem ser crucias</p>
-        </div>
-      </div>   
+  <header class="section page-header parallax-window" data-parallax="scroll" th:data-image-src="@{/resources/imagens/header-background.jpg}" data-image-src="../../resources/imagens/header-background.jpg">
+   <div th:insert="layout/header :: head"></div>
+   <div class="col-md-12">
+     <div class="row justify-content-center align-items-center text-center">
+     	 <div class="texto-inicial">
+		 	<h1 class="cover-heading">Portal das Disciplinas - IMD</h1>
+	      	<div class="container">
+	        	<p class="lead">Não há mais motivos para ficar com duvidas sobre as disciplinas ofertadas no Instituto Metropole Digital. Nosso site dispõe de informações que podem ser crucias</p>
+	      	</div>
+     	 </div>
+     </div>
+   </div>   
   </header>
   <section class="section section-md bg-default text-center mt-5">
     <div class="container">
@@ -96,7 +100,7 @@
       </div>
     </div>
   </section>
-  <section class="section section-md bg-default text-center mt-5 rallax-window" data-parallax="scroll" data-image-src="../../resources/imagens/ti.png" th:data-image-src="@{/resources/imagens/ti.png}" id="section-02">
+  <section class="section section-md bg-default text-center mt-5 rallax-window" data-parallax="scroll" data-image-src="../../resources/imagens/midlle-img.jpg" th:data-image-src="@{/resources/imagens/midlle-img.jpg}" id="section-02">
     <div class="container container-fullwidth">
       <br/>
 
@@ -107,7 +111,7 @@
             <div class="owl-stage" style="margin-bottom: 20px">
               <div class="owl-item active">
                 <div class="card" style="width: 18rem;">
-				  <img class="card-img-top" th:src="@{/resources/imagens/ciencia.jpg}" alt="Card image cap">
+				  <img class="card-img-top" th:src="@{/resources/imagens/ciencia.jpg}" src="../../resources/imagens/ciencia.jpg" alt="Card image cap">
 				  <div class="card-body">
 				    <h5 class="card-title">Card title</h5>
 				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -117,7 +121,7 @@
               </div>
               <div class="owl-item active">
                  <div class="card" style="width: 18rem;">
-				  <img class="card-img-top" th:src="@{/resources/imagens/ciencia.jpg}" alt="Card image cap">
+				  <img class="card-img-top" th:src="@{/resources/imagens/ciencia.jpg}" src="../../resources/imagens/ciencia.jpg" alt="Card image cap">
 				  <div class="card-body">
 				    <h5 class="card-title">Card title</h5>
 				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -127,7 +131,7 @@
               </div>
               <div class="owl-item active">
                  <div class="card" style="width: 18rem;">
-				  <img class="card-img-top" th:src="@{/resources/imagens/ciencia.jpg}" alt="Card image cap">
+				  <img class="card-img-top" th:src="@{/resources/imagens/ciencia.jpg}" src="../../resources/imagens/ciencia.jpg" alt="Card image cap">
 				  <div class="card-body">
 				    <h5 class="card-title">Card title</h5>
 				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -137,7 +141,7 @@
               </div>
               <div class="owl-item active">
                  <div class="card" style="width: 18rem;">
-				  <img class="card-img-top" th:src="@{/resources/imagens/ciencia.jpg}" alt="Card image cap">
+				  <img class="card-img-top" th:src="@{/resources/imagens/ciencia.jpg}" src="../../resources/imagens/ciencia.jpg" alt="Card image cap">
 				  <div class="card-body">
 				    <h5 class="card-title">Card title</h5>
 				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -166,16 +170,6 @@
   <section class="section section-sm bg-default mt-5">
        <!-- Pensar no que vamos coloar aqui. -->
   </section>
-   <footer class="section footer-creative context-dark">
-     <div th:insert="layout/footer :: foot"></div>
-     <script>
-         $(document).ready(function(){
-         $(".owl-carousel").owlCarousel();
-         });
-         $(function () {
-           $('.dropdown-toggle').dropdown();
-         }); 
-     </script>
-   </footer>
+    <div th:insert="layout/footer::foot"></div>
 </body>
 </html>

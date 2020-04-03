@@ -6,12 +6,32 @@
 .navbar{
     background-color: transparent;
 }
+.nav-header{
+ 	background-color: rgba(131,111,255,0.2);
+}
+#button-nav{
+	border-radius: 15px;
+	font-family: sans-serif;
+	font-weight: bolder;
+	border: 2px solid #000000;
+}
+#button-nav:hover{
+	border: 2px solid #ffffff;
+	color: #ffffff;
+}
+.texto-inicial{
+	margin-top: 280px;
+}
+.texto-inicial > h1, .lead{
+	color: #ffffff;
+	text-shadow: 1px 1px 2px black; 
+}
 .navbar-collapse{
     background-color: transparent;
 }
 
 .navbar-nav{
-    margin: 0 auto;
+    margin-left: 0px;
 }
 
 /*animação do dropdown do menu inicial*/
@@ -68,6 +88,7 @@ li.dropdown:hover ul.dropdown-menu{
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     padding: 0px !important;
+    color: #ffffff !important;
 }
 ul.navbar-nav li.nav-item{
   margin: 0 20px;
