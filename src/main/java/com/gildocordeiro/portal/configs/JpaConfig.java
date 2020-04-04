@@ -53,7 +53,7 @@ public class JpaConfig {
 		
 		bean.setDatabase(Database.POSTGRESQL);
 		bean.setGenerateDdl(true);
-		bean.setShowSql(true);
+		bean.setShowSql(false);
 		
 		return bean;
 	}

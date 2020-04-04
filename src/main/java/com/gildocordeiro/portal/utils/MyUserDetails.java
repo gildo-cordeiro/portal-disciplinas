@@ -1,44 +1,35 @@
-package com.gildocordeiro.portal.configs;
+package com.gildocordeiro.portal.utils;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.gildocordeiro.portal.domain.Usuario;
-
-public class MyUserDetails implements UserDetails{
+public class MyUserDetails implements UserDetails {
 	
+	private static final long serialVersionUID = 1L;
 	private String userName;
-	private String password;
-	private boolean active;
-	private List<GrantedAuthority> authorities;
 	
-	public MyUserDetails(Usuario usuario) {
-		this.username= usuario.getNome();
-		this.password= usuario.getSenha();
-		this.active= usuario.isActive();
+	public MyUserDetails(){
 		
-		this.authorities= Arrays.stream( usuario.getRole().split(","))
-				.map(SimpleGrantedAuthority::new )
-				.collect(Collectors.toList());
-		
+	}
+	
+	public MyUserDetails(String userName) {
+		this.userName = userName;
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return authorities;
+		return Arrays.asList(new SimpleGrantedAuthority("PROFESSOR"));
 	}
 
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return password;
+		return "pass";
 	}
 
 	@Override
@@ -68,9 +59,7 @@ public class MyUserDetails implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
-
-	
 
 }

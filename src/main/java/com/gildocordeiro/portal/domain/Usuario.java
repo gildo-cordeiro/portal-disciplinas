@@ -21,16 +21,7 @@ public class Usuario implements Serializable{
 	private String login;
 	private String senha;
 	private Integer tipo;
-	private String role;
-	
 
-	public String getRole() {
-		return this.role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
 
 	public String getNome() {
 		return nome;
