@@ -6,6 +6,9 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
@@ -19,23 +22,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     // custom 403 access denied handler
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-    	http
-        .authorizeRequests()
-            // Para qualquer requisição (anyRequest) é preciso estar 
-            // autenticado (authenticated).
-            .anyRequest().authenticated()
-        .and()
-        .httpBasic();
-  }
-
-
-    // create two users, admin and user
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-
-        auth.inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER")
-                .and()
-                .withUser("admin").password("password").roles("ADMIN");
+    	http.authorizeRequests()
+        .antMatchers("/admin").hasRole("ADMIN")
+        .antMatchers("/user")
+        .hasAnyRole("ADMIN","USER")
+        .antMatchers("/")
+        .permitAll().and()
+        .formLogin();
     }
+    
+    UserDetailsService userDetailsService;
+    
+    @Autowired
+    protected void configure(AuthenticationManagerBuilder auth) {
+    	try {
+			auth.userDetailsService(userDetailsService);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    }
+    @SuppressWarnings("deprecation")
+	public PasswordEncoder getPasswordEncoder() {return NoOpPasswordEncoder.getInstance();}
 }

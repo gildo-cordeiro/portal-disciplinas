@@ -40,4 +40,14 @@ public class loginController {
 		model.addObject("usuario", new Usuario());
 		return model;
 	}
+	
+	/*@RequestMapping(value= "/autenticaUsuario", method=RequestMethod.POST)
+	public ModelAndView autenticaUsuario() {
+		usuarioService.
+		
+		model= new ModelAndView("paginaInicial.html");
+		return model;
+	}*/
+	
+	
 }
