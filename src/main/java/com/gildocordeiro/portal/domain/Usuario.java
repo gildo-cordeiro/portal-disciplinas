@@ -1,11 +1,16 @@
 package com.gildocordeiro.portal.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.gildocordeiro.portal.domain.enums.TipoUsuario;
 
@@ -15,21 +20,103 @@ public class Usuario implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer id;	
+	private Integer tipo;	
 	private String nome;
 	private String email;
 	private String login;
 	private String senha;
-	private Integer tipo;
-	private String role;
-	
+	private boolean ativo;
 
-	public String getRole() {
-		return this.role;
+	@OneToMany(mappedBy = "usuario")
+	private List<Turma> turmas;
+	
+	@OneToMany(mappedBy = "usuario")
+	private List<Multimidia> multimidias;
+
+	@OneToMany(mappedBy = "usuario")
+	private List<Historico> historicos;
+	
+	public List<Historico> getHistoricos() {
+		return historicos;
+	}
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "usuario_aluno")
+	private UsuarioAluno aluno;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "usuario_professor")
+	private UsuarioProfessor professor;
+
+	public UsuarioAluno getAluno() {
+		return aluno;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+
+
+	public void setAluno(UsuarioAluno aluno) {
+		this.aluno = aluno;
+	}
+
+
+
+	public UsuarioProfessor getProfessor() {
+		return professor;
+	}
+
+
+
+	public void setProfessor(UsuarioProfessor professor) {
+		this.professor = professor;
+	}
+
+
+
+	public void setHistoricos(List<Historico> historicos) {
+		this.historicos = historicos;
+	}
+
+	
+	
+	public List<Multimidia> getMultimidias() {
+		return multimidias;
+	}
+
+	public void setMultimidias(List<Multimidia> multimidias) {
+		this.multimidias = multimidias;
+	}
+
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
+
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
+	}
+
+
+	public Integer getTipo() {
+		return TipoUsuario.toEnum(tipo);
+	}
+
+	public void setTipo(TipoUsuario tipo) {
+		this.tipo = tipo.getCodigo();
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 
 	public String getNome() {
@@ -62,22 +149,6 @@ public class Usuario implements Serializable{
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public Integer getTipo() {
-		return TipoUsuario.toEnum(tipo);
-	}
-
-	public void setTipo(TipoUsuario tipo) {
-		this.tipo = tipo.getCodigo();
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	@Override

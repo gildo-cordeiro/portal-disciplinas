@@ -24,8 +24,8 @@ public class Historico implements Serializable{
 	private Integer situacao;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_aluno")
-	private Aluno aluno;
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario; 
 	
 	@ManyToOne
 	@JoinColumn(name = "id_disciplina")
@@ -63,11 +63,11 @@ public class Historico implements Serializable{
 		this.situacao = situacao.getCodigo();
 	}
 
-	public Aluno getAluno() {
-		return aluno;
+	public Usuario getUsuario() {
+		return usuario;
 	}
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	public Disciplina getDisciplina() {
 		return disciplina;

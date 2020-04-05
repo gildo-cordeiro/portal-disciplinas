@@ -1,30 +1,42 @@
 package com.gildocordeiro.portal.domain;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Aluno extends Usuario implements Serializable{
+public class UsuarioAluno implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private Float notas_apresentacao_oral;
 	private Float notas_trabalho_grupo;	
 	
-	@OneToMany(mappedBy = "aluno")
-	private List<Historico> historicos;
+	@OneToOne(mappedBy = "aluno")
+	private Usuario usuario;
 	
-	public List<Historico> getHistoricos() {
-		return historicos;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setHistoricos(List<Historico> historicos) {
-		this.historicos = historicos;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public Float getNotas_apresentacao_oral() {
 		return notas_apresentacao_oral;
@@ -40,6 +52,5 @@ public class Aluno extends Usuario implements Serializable{
 
 	public void setNotas_trabalho_grupo(Float notas_trabalho_grupo) {
 		this.notas_trabalho_grupo = notas_trabalho_grupo;
-	}
-	
+	}	
 }
