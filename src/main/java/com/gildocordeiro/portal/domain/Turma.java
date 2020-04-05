@@ -23,8 +23,8 @@ public class Turma implements Serializable{
 	private Float nota_aula_EaD;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_professor")
-	private Professor professor;
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario; 
 	
 	@ManyToOne
 	@JoinColumn(name = "id_disciplina")
@@ -74,12 +74,12 @@ public class Turma implements Serializable{
 		this.nota_aula_EaD = nota_aula_EaD;
 	}
 
-	public Professor getProfessor() {
-		return professor;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public Disciplina getDisciplina() {

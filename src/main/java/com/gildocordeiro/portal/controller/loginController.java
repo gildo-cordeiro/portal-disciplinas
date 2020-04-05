@@ -19,14 +19,13 @@ public class loginController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login")
 	public ModelAndView login() {
 		model = new ModelAndView("login/loginForm.html");
-		model.addObject("usuario", new Usuario());
 		return model;
 	}
 	
-	@RequestMapping(value = "/registrar", method = RequestMethod.GET)
+	@RequestMapping(value = "/registrar")
 	public ModelAndView registrar() {
 		model = new ModelAndView("login/registrarForm.html");
 		model.addObject("usuario", new Usuario());
@@ -37,7 +36,6 @@ public class loginController {
 	public ModelAndView salvarUsuario(@ModelAttribute(value = "usuario") Usuario usuario, BindingResult bindingResult) {
 		usuarioService.salvarUsuario(usuario);
 		model = new ModelAndView("login/loginForm.html");
-		model.addObject("usuario", new Usuario());
 		return model;
 	}
 	

@@ -1,43 +1,44 @@
 package com.gildocordeiro.portal.domain;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Professor extends Usuario implements Serializable{
+public class UsuarioProfessor  implements Serializable{
 	private static final long serialVersionUID = 1L;
-
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private Float nota_aula_expositiva;
 	private Float nota_aula_pratica;
 	private Float nota_aula_EaD;
 	private String email_contato;
 	
-	@OneToMany(mappedBy = "professor")
-	private List<Turma> turmas;
+	@OneToOne(mappedBy = "professor")
+	private Usuario usuario;
 	
-	@OneToMany(mappedBy = "professor")
-	private List<Multimidia> multimidias;
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	
-	
-	public List<Multimidia> getMultimidias() {
-		return multimidias;
-	}
-
-	public void setMultimidias(List<Multimidia> multimidias) {
-		this.multimidias = multimidias;
-	}
-
-	public List<Turma> getTurmas() {
-		return turmas;
-	}
-
-	public void setTurmas(List<Turma> turmas) {
-		this.turmas = turmas;
-	}
-
 	public Float getNota_aula_expositiva() {
 		return nota_aula_expositiva;
 	}
@@ -69,5 +70,4 @@ public class Professor extends Usuario implements Serializable{
 	public void setEmail_contato(String email_contato) {
 		this.email_contato = email_contato;
 	}
-
 }

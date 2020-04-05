@@ -17,8 +17,7 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
-//Configurações de Servelet. Não entendo bem isso ainda :)
-
+//Configurações de Servelet para o Tomcat 9.0
 public class PortalDisciplinasApplication implements WebApplicationInitializer{
 
 	@Override
