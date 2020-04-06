@@ -14,16 +14,16 @@
 	<div class="col-md-12 col-sm-12">
 		<div class="login-wrap">
 			<div class="login-html">
-				<form th:action="@{/autenticarUsuario}" method="post">
+				<form th:action="@{/autenticarUsuario}" method="post" th:object="${usuario}">
 	  				<div class="row">
 		  				<div class="col-md-12">
 			  				<div class="form-group">
 							    <label for="email">Email</label>
-							    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required="required">
+							    <input type="email" class="form-control" th:field="*{email}" id="email" aria-describedby="emailHelp" required="required">
 						  	</div>
 						  	<div class="form-group">
 						    	<label for="senha">Senha</label>
-						    	<input type="password" class="form-control" id="senha" required="required">
+						    	<input type="password" class="form-control" th:field="*{senha}" id="senha" required="required">
 						  	</div>
 		  				</div>
 	  				</div>

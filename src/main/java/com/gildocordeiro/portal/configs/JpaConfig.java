@@ -52,8 +52,8 @@ public class JpaConfig {
 		HibernateJpaVendorAdapter bean = new HibernateJpaVendorAdapter();
 		
 		bean.setDatabase(Database.POSTGRESQL);
-		bean.setGenerateDdl(true);
-		bean.setShowSql(false);
+//		bean.setGenerateDdl(true);
+//		bean.setShowSql(false);
 		
 		return bean;
 	}

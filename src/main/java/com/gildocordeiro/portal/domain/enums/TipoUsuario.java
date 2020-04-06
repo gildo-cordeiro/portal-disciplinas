@@ -36,5 +36,18 @@ public enum TipoUsuario {
 		}
 		throw new IllegalArgumentException("Id invalido: "+cod); 
 	}
+	
+	public static String getDesc(Integer cod) {
+		if(cod == null) {
+			return null;
+		}
+		
+		for (TipoUsuario usuario : TipoUsuario.values()) {
+			if (cod.equals(usuario.getCodigo())) {
+				return usuario.getDescricao();
+			}
+		}
+		throw new IllegalArgumentException("Descrição não encontrada"); 
+	}
 
 }

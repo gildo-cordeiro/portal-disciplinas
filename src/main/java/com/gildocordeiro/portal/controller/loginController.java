@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gildocordeiro.portal.domain.Usuario;
+import com.gildocordeiro.portal.domain.enums.TipoUsuario;
 import com.gildocordeiro.portal.service.UsuarioService;
 
 @RestController
@@ -22,6 +23,7 @@ public class loginController {
 	@RequestMapping(value = "/login")
 	public ModelAndView login() {
 		model = new ModelAndView("login/loginForm.html");
+		model.addObject("usuario", new Usuario());
 		return model;
 	}
 	
@@ -36,16 +38,23 @@ public class loginController {
 	public ModelAndView salvarUsuario(@ModelAttribute(value = "usuario") Usuario usuario, BindingResult bindingResult) {
 		usuarioService.salvarUsuario(usuario);
 		model = new ModelAndView("login/loginForm.html");
+		model.addObject("usuario", new Usuario());
 		return model;
 	}
 	
-	/*@RequestMapping(value= "/autenticaUsuario", method=RequestMethod.POST)
-	public ModelAndView autenticaUsuario() {
-		usuarioService.
+	@RequestMapping(value= "/autenticarUsuario", method=RequestMethod.POST)
+	public ModelAndView autenticaUsuario(@ModelAttribute(value =  "usuario") Usuario usuario) {
+		String tipo = usuarioService.autenticarUsuario(usuario);
 		
-		model= new ModelAndView("paginaInicial.html");
+		if(tipo != "") {
+			model = new ModelAndView("redirect:/" + tipo.toLowerCase());
+		}else {
+			model = new ModelAndView("redirect: login");
+			model.addObject("usuario", new Usuario());
+		}
+		
 		return model;
-	}*/
+	}
 	
 	
 }

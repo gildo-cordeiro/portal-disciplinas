@@ -24,7 +24,7 @@ public class Usuario implements Serializable{
 	private Integer tipo;	
 	private String nome;
 	private String email;
-	private String login;
+	private String userName;
 	private String senha;
 	private boolean ativo;
 
@@ -52,32 +52,22 @@ public class Usuario implements Serializable{
 	public UsuarioAluno getAluno() {
 		return aluno;
 	}
-
-
-
+	
 	public void setAluno(UsuarioAluno aluno) {
 		this.aluno = aluno;
 	}
-
-
 
 	public UsuarioProfessor getProfessor() {
 		return professor;
 	}
 
-
-
 	public void setProfessor(UsuarioProfessor professor) {
 		this.professor = professor;
 	}
 
-
-
 	public void setHistoricos(List<Historico> historicos) {
 		this.historicos = historicos;
 	}
-
-	
 	
 	public List<Multimidia> getMultimidias() {
 		return multimidias;
@@ -135,12 +125,12 @@ public class Usuario implements Serializable{
 		this.email = email;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getSenha() {
