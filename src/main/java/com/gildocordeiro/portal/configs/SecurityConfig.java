@@ -7,22 +7,18 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.gildocordeiro.portal.domain.enums.TipoUsuario;
-import com.gildocordeiro.portal.service.UsuarioService;
+import com.gildocordeiro.portal.service.MyUserDetailService;
 
-
-@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
-	UsuarioService usuarioService;
+	private MyUserDetailService myUserDetailService;
 	
+	//Vetor das URLs livres para todos
 	private static final String[] PUBLIC_MATCHERS = {
 			"/resources/**",
 			"/","/inicio",
@@ -31,29 +27,40 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	};
 	
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(usuarioService);
-	}
-	
-	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		 		.antMatchers("/professor").hasRole("professor")
-		 		.antMatchers("/aluno").hasRole("aluno")
-		 		.antMatchers("/adm").hasRole("adm")
+		 		.antMatchers("/professor").hasRole("PROFESSOR")
+		 		.antMatchers("/aluno").hasRole("ALUNO")
+		 		.antMatchers("/adm").hasRole("ADM")
 		 		.antMatchers(PUBLIC_MATCHERS).permitAll()
 				.and()
 			.formLogin()
 				.loginPage("/login")
 				.permitAll()
-				.and()
-			.logout()
+			.and()
+				.logout()
+				.logoutSuccessUrl("/login?logout")
 				.permitAll();
 	}
 	
-	@Bean
-	PasswordEncoder getPasswordEncoder() {
-		return NoOpPasswordEncoder.getInstance();
+	//segurança customizada com o UserDetails
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(myUserDetailService).passwordEncoder(passwordEncoder());
 	}
-
+	
+	//cripotografia da senha
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder(); 
+	}
+	
+//	@Autowired
+//	protected void configureGlobal(AuthenticationManagerBuilder builder) throws Exception {
+//		builder
+//			.inMemoryAuthentication()
+//			.withUser("gildo@gmail").password("123").roles("ADM")
+//			.and()
+//			.withUser("gileno@gmail").password("123").roles("USER");
+//	}
 }

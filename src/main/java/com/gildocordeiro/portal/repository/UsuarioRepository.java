@@ -11,7 +11,10 @@ import com.gildocordeiro.portal.domain.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	
-	@Query("select u from Usuario u where u.email = ?1")
-	public Optional<Usuario> findByEmail(String email);
+	@Query(value="select u from Usuario u where u.userName = ?1")
+	public Optional<Usuario> findByUserName(String username);
+	
+	//s@Query(value="SELECT p.perfil FROM usuario_permissoes up WHERE u.email = ?1", nativeQuery = true)
+	//public List<Perfil> findPermissoes(String email);
 
 }

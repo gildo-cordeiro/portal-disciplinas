@@ -1,10 +1,15 @@
 package com.gildocordeiro.portal.domain;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,7 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import com.gildocordeiro.portal.domain.enums.TipoUsuario;
+import com.gildocordeiro.portal.domain.enums.Perfil;
 
 @Entity
 public class Usuario implements Serializable{	
@@ -21,12 +26,29 @@ public class Usuario implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;	
-	private Integer tipo;	
 	private String nome;
 	private String email;
 	private String userName;
 	private String senha;
-	private boolean ativo;
+	private boolean ativo;	
+	
+	public Usuario() {
+		
+	}
+	
+	public Usuario(String nome, String email, String userName, String senha, boolean ativo,
+			Perfil perfis) {
+		this.nome = nome;
+		this.email = email;
+		this.userName = userName;
+		this.senha = senha;
+		this.ativo = ativo;
+		this.perfis.add(perfis);
+	}
+
+	@ElementCollection(fetch = FetchType.EAGER)
+	@CollectionTable(name = "PERFIS")
+	private Set<Perfil> perfis = new HashSet<Perfil>();
 
 	@OneToMany(mappedBy = "usuario")
 	private List<Turma> turmas;
@@ -48,11 +70,19 @@ public class Usuario implements Serializable{
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuario_professor")
 	private UsuarioProfessor professor;
-
+	
+	
 	public UsuarioAluno getAluno() {
 		return aluno;
 	}
+	public Set<Perfil> getPerfis() {
+		return perfis;
+	}
 	
+	public void addPerfil(Integer perfil) {
+		perfis.add(Perfil.getPerfil(perfil));
+	}
+
 	public void setAluno(UsuarioAluno aluno) {
 		this.aluno = aluno;
 	}
@@ -83,15 +113,6 @@ public class Usuario implements Serializable{
 
 	public void setTurmas(List<Turma> turmas) {
 		this.turmas = turmas;
-	}
-
-
-	public Integer getTipo() {
-		return TipoUsuario.toEnum(tipo);
-	}
-
-	public void setTipo(TipoUsuario tipo) {
-		this.tipo = tipo.getCodigo();
 	}
 
 	public Integer getId() {
