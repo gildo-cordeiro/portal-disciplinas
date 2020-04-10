@@ -5,8 +5,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.gildocordeiro.portal.domain.Usuario;
-import com.gildocordeiro.portal.domain.dto.UsuarioDTO;
 import com.gildocordeiro.portal.domain.enums.Perfil;
+import com.gildocordeiro.portal.dto.UsuarioDTO;
 import com.gildocordeiro.portal.repository.UsuarioRepository;
 
 @Service

@@ -1,4 +1,4 @@
-package com.gildocordeiro.portal.domain.dto;
+package com.gildocordeiro.portal.dto;
 
 public class UsuarioDTO {
 	

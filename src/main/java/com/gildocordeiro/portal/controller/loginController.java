@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gildocordeiro.portal.domain.Usuario;
-import com.gildocordeiro.portal.domain.dto.UsuarioDTO;
+import com.gildocordeiro.portal.dto.UsuarioDTO;
 import com.gildocordeiro.portal.service.UsuarioService;
 
 @RestController
