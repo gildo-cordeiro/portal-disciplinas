@@ -1,13 +1,27 @@
 package com.gildocordeiro.portal.dto;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
 public class UsuarioDTO {
 	
+	@NotEmpty(message = "Nome vazio")
 	private String nome;
+	
+	@Email(message = "E-mail mal formatado")
 	private String email;
+	
+	@NotBlank(message = "Username vazio")
 	private String userName;
+	
+	@NotBlank(message = "Senha vazia")
 	private String senha;
+	
+	@NotBlank(message = "Senha vazia")
 	private Integer perfil;
 
+	
 	public String getNome() {
 		return nome;
 	}
@@ -47,5 +61,4 @@ public class UsuarioDTO {
 	public void setPerfil(Integer perfil) {
 		this.perfil = perfil;
 	}	
-
 }

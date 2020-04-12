@@ -1,4 +1,4 @@
-package com.gildocordeiro.portal.utils;
+package com.gildocordeiro.portal.security;
 
 import java.util.ArrayList;
 import java.util.Collection;

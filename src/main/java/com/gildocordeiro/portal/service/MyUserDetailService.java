@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.gildocordeiro.portal.domain.Usuario;
 import com.gildocordeiro.portal.repository.UsuarioRepository;
-import com.gildocordeiro.portal.utils.MyUserDetails;
+import com.gildocordeiro.portal.security.MyUserDetails;
 
 @Service
 public class MyUserDetailService implements UserDetailsService{

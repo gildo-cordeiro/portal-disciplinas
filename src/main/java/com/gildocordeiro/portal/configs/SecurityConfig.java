@@ -40,7 +40,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.and()
 				.logout()
 				.logoutSuccessUrl("/login?logout")
-				.permitAll();
+				.permitAll()
+			.and()
+				.exceptionHandling().accessDeniedPage("/unauthorized-page");
+		
 	}
 	
 	//segurança customizada com o UserDetails
