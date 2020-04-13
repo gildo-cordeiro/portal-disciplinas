@@ -11,37 +11,53 @@
 </head>
 <body>
 	<div class="col-md-12 col-sm-12">
+		<span class="badge badge-pill badge-danger" th:text="${msg}"></span>
 		<div class="cadastro-wrap">
 			<div class="cadastro-html">
 				<form th:action="@{/salvarUsuario}" th:object="${form}" method="post" id="formCadastro">
-					<div class="form-group">
-			    		<label for="nome">Nome Completo</label>
-			    		<input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Seu nome" required="required">
-			  		</div>
 			  		<div class="form-group">
 			    		<label for="email">Email</label>
 			    		<input type="email" class="form-control" id="email" th:field="*{email}" aria-describedby="emailHelp" placeholder="Seu email" required="required">
 		    			<small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
 			  		</div>
+	  				<div class="form-group">
+			    		<div class="row">
+			    			<div class="col-md-6">
+					    		<label for="nome">Nome de usuario</label>
+					    		<input type="text" class="form-control" id="username" th:field="*{userName}" placeholder="Seu nome de usuario" required="required">
+				  			</div>
+				  			<div class="col-md-6">
+					    		<label for="nome">Nome Completo</label>
+					    		<input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Seu nome" required="required">
+				  			</div>
+			    		</div>
+			  		</div>
 			  		<div class="form-group">
-		    			<label for="senha">Senha</label>
-			    		<input type="password" class="form-control" id="senha" th:field="*{senha}" placeholder="Senha" required="required">
+			  			<div class="row">
+			  				<div class="col-md-6"> 
+				    			<label for="senha">Senha</label>
+					    		<input type="password" class="form-control" id="senha" th:field="*{senha}" placeholder="Senha" required="required">
+				    		</div>
+			  				<div class="col-md-6">
+				  				<label for="senha">Confirmar senha</label>
+				    			<input type="password" class="form-control" id="confirmSenha" placeholder="Confirmar Senha" required="required">
+				  			</div>
+			  			</div>		  				
 		  			</div>
 		  			<div class="form-group">
-		    			<label for="senha">Confirmar senha</label>
-			    		<input type="password" class="form-control" id="confirmSenha" placeholder="Confirmar Senha" required="required">
+		    			
 		  			</div>
 		  			<div class="row mt-3">
 				  		<div class="col-md-3">
 				  		 	<div class="custom-control custom-radio">
-						      <input type="radio" class="custom-control-input" value="2" id="2" th:field="*{perfil}" name="usuario" required="required">
-						      <label class="custom-control-label" for="2">PROFESSOR</label>
+						      <input type="radio" class="custom-control-input" value="1" id="1" th:field="*{perfil}" name="usuario" required="required">
+						      <label class="custom-control-label" for="1">PROFESSOR</label>
 						    </div>				  			
 				  		</div>	
 				  		<div class="col-md-3">
 				  		 	<div class="custom-control custom-radio">
-						      <input type="radio" class="custom-control-input" value="3" id="3" th:field="*{perfil}" name="usuario" required="required">
-						      <label class="custom-control-label" for="3">ALUNO</label>
+						      <input type="radio" class="custom-control-input" value="2" id="2" th:field="*{perfil}" name="usuario" required="required">
+						      <label class="custom-control-label" for="2">ALUNO</label>
 						    </div>				  			
 				  		</div>			  		
 				  	</div>	

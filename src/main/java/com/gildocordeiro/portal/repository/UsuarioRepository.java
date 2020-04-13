@@ -14,6 +14,10 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	@Query(value="select u from Usuario u where u.userName = ?1")
 	public Optional<Usuario> findByUserName(String username);
 	
+	
+	@Query(value="select u from Usuario u where u.email = ?1")
+	public Optional<Usuario> findByEmail(String email);
+	
 	//s@Query(value="SELECT p.perfil FROM usuario_permissoes up WHERE u.email = ?1", nativeQuery = true)
 	//public List<Perfil> findPermissoes(String email);
 
