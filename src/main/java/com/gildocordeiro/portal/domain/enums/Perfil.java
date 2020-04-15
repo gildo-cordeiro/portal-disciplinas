@@ -5,9 +5,9 @@ import java.util.List;
 
 public enum Perfil {
 	
-	ADMINISTRADOR(1, "ROLE_ADM"),
-	PROFESSOR(2, "ROLE_PROFESSOR"),
-	ALUNO(3, "ROLE_ALUNO");
+	ADMINISTRADOR(0, "ROLE_ADM"),
+	PROFESSOR(1, "ROLE_PROFESSOR"),
+	ALUNO(2, "ROLE_ALUNO");
 	
 	private static List<Perfil> perfis = new ArrayList<Perfil>(); 
 	

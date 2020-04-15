@@ -1,5 +1,7 @@
 package com.gildocordeiro.portal.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,9 +20,14 @@ public class UsuarioService{
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 		
-	public void salvarUsuario(Usuario usuario) {
+	public String salvarUsuario(Usuario usuario) {
+		Optional<Usuario> usuarioEncontrado = usuarioRepository.findByEmail(usuario.getEmail());
+		if (usuarioEncontrado.isPresent()) {
+			return "E-mail já cadastrado";
+		}
 		usuario.setSenha(bCryptPasswordEncoder.encode(usuario.getSenha()));
 		usuarioRepository.save(usuario);
+		return "Usuario cadastrado com sucesso";
 	}
 	
 	public Usuario converteFromUser(UsuarioDTO form) {

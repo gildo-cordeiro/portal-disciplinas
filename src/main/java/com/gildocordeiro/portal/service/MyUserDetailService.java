@@ -23,7 +23,7 @@ public class MyUserDetailService implements UserDetailsService{
 		Optional<Usuario> u = usuarioRepository.findByUserName(username);
 
 		return new MyUserDetails(u.get().getNome(), u.get().getUserName(), 
-				u.get().getSenha(), u.get().isAtivo(), u.get().getPerfis());
+				u.get().getSenha(), u.get().isAtivo(),u.get().getPerfis());
 	}
 
 }

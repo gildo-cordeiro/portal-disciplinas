@@ -5,6 +5,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,9 +35,10 @@ public class loginController {
 	}
 	
 	@GetMapping(value = "/registrar")
-	public ModelAndView registrar() {
+	public ModelAndView registrar(@RequestParam(value = "msg", required = false) String msg) {
 		model = new ModelAndView("login/registrarForm.html");
 		model.addObject("form", new UsuarioDTO());
+		model.addObject("msg", msg);
 		return model;
 	}
 	
@@ -46,13 +48,20 @@ public class loginController {
 		return model;
 	}
 	@PostMapping(value = "/salvarUsuario")
-	public ModelAndView salvarUsuario(@ModelAttribute(value = "form") UsuarioDTO form,BindingResult bindingResult) {
-		form.setUserName("gildo.duarte");
+	public ModelAndView salvarUsuario(@ModelAttribute(value = "form") UsuarioDTO form, BindingResult bindingResult) {
 		Usuario usuario = usuarioService.converteFromUser(form);
-		usuarioService.salvarUsuario(usuario);
-		
-		model = new ModelAndView("login/loginForm.html");
+		String message = usuarioService.salvarUsuario(usuario);
+
+		model = new ModelAndView("redirect:registrar");
 		model.addObject("usuario", new Usuario());
+		model.addObject("msg", message);
+
+		return model;
+	}
+	
+	@GetMapping("/professor")
+	public ModelAndView prof() {
+		model = new ModelAndView("professor.html");
 		return model;
 	}
 	
@@ -62,5 +71,11 @@ public class loginController {
 		
 		return model;
 	}
+	
+	@GetMapping(value = "/unauthorized-page")
+    public ModelAndView unauthorizedPage() {
+    	model = new ModelAndView("pages/403.html");
+    	return model;
+    }
 	
 }
