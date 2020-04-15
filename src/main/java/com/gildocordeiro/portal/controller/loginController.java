@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,11 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gildocordeiro.portal.domain.Usuario;
 import com.gildocordeiro.portal.dto.UsuarioDTO;
 import com.gildocordeiro.portal.service.UsuarioService;
+import com.gildocordeiro.portal.utils.UsuarioLogado;
 
 @RestController
 public class loginController {
 	
 	ModelAndView model;
+	
 
 	@Autowired
 	private UsuarioService usuarioService;
@@ -67,8 +70,8 @@ public class loginController {
 	
 	@PostMapping(value= "/autenticarUsuario")
 	public ModelAndView autenticaUsuario() {
-		model = new ModelAndView("redirect: adm");
-		
+		UsuarioLogado user = new UsuarioLogado();
+		model = new ModelAndView("redirect:perfil/"+user.getUsuario().getUserName().toString());
 		return model;
 	}
 	
@@ -77,5 +80,17 @@ public class loginController {
     	model = new ModelAndView("pages/403.html");
     	return model;
     }
+	
+	
+	@GetMapping(value = "/perfil/{username}")
+	public ModelAndView dashUser(@PathVariable String username) {
+		UsuarioLogado user = new UsuarioLogado();
+		if (username.equals(user.getUsuario().getUserName())) {
+			model = new ModelAndView("dash.html");
+		}else {
+			model = new ModelAndView("pages/404.html");
+		}
+		return model;
+	}
 	
 }
