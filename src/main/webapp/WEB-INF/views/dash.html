@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="../../resources/assets/bootstrap/css/bootstrap.min.css" 
+    th:href="@{/resources/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" href="../../resources/assets/css/dashStyle.css" th:href="@{/resources/assets/css/dashStyle.css}">
+     <script src="https://kit.fontawesome.com/60c83f3c35.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/path/to/jquery.mCustomScrollbar.css" />
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="row m-0">
+      <div class="col-md-10">
+    <div class="wrapper">
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+
+      <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+      </div>
+        <!-- profile user-->
+        <!---Menu lateral-->
+    <ul class="list-unstyled">
+      <p>Heading</p>
+      <li class="active">
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-cogs mr-2"></i>Settings</a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+          <li>
+            <a href="#">Editar Perfil</a>
+          </li>
+          <li>
+            <a href="#">Editar disciplinas</a>
+          </li>
+          <li>
+            <a href="#">configurações da conta</a>
+          </li>
+        </ul>  
+    </li>
+    <li>
+      <a href="#">About</a>
+    </li>
+    <li>
+      <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-graduation-cap mr-2"></i>Disciplinas</a>
+      <ul class="collapse list-unstyled" id="pageSubmenu">
+        <li>
+          <a href="#">Demos</a>
+        </li>
+        <li>
+          <a href="#">Visualizar disciplinas</a>
+        </li>
+        <li>
+          <a href="#"> Visualizar professores</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Portifolio</a>
+    </li>
+    <li>
+      <a href="">Contact</a>
+    </li>
+  </ul>
+</nav>
+</div>
+</div>
+
+  <!--profile-->
+  <div class="col-md-2">
+    <div class="card card-profile">
+      <div class="avatar">
+        <img alt="" src="http://lorempixel.com/100/100/people/9/">
+      </div>
+      <div class="dropdown show mt-2">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">opções</a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>      
+    </div>
+  </div>
+</div>
+ 
+<div class="row mt-0">
+  <div class="col-md-12">
+    <!-- Cartões -->
+    <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 ">
+        <div id="centralize">
+          <div class="card d-inline-block  border border-secondary">
+            <div class="card-header bg-header-orange">
+              
+            </div>
+            <div class="card-body">
+              <p class="text-light">Ola eu sou um cartão</p>
+              
+            </div>
+          </div>
+          <div class="card d-inline-block border border-secondary">
+            <div class="card-header bg-light border">
+              
+            </div>
+            <div class="card-body">
+              <p class="text-light">Ola eu sou um cartão</p>           
+            </div>
+          </div>      
+          <div class="card d-inline-block border border-secondary">
+            <div class="card-header bg-header-springgreen">
+              
+            </div>
+            <div class="card-body">
+              <p class="text-light">Ola eu sou um cartão</p>
+            </div>
+          </div>
+
+        </div>
+
+       </div>
+      
+    </div>
+  </div> 
+    
+  </div>
+</div>
+<div class="container ml-10 p-0 mr-0">
+<div class="row mt-2 ml-0 mr-0 p-0">
+  <div class="col ml-4">
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Colocações</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Periodo</th>
+      <th scope="col">Pontos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+</div>
+    
+   <script src="../../resources/assets/bootstrap/js/bootstrap.min.js" 
+    th:src="@{/resources/assets/bootstrap/js/bootstrap.min.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../resources/assets/js/dashScript.js" th:src="@{/resources/assets/js/dashScript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script src="/path/to/jquery.mCustomScrollbar.concat.min.js"></script>
+  </body>
+</html>

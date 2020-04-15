@@ -40,6 +40,11 @@ public class loginController {
 		return model;
 	}
 	
+	@PostMapping(value="/principal")
+	public ModelAndView dash() {
+		model= new ModelAndView("dash.html");
+		return model;
+	}
 	@PostMapping(value = "/salvarUsuario")
 	public ModelAndView salvarUsuario(@ModelAttribute(value = "form") UsuarioDTO form,BindingResult bindingResult) {
 		form.setUserName("gildo.duarte");
