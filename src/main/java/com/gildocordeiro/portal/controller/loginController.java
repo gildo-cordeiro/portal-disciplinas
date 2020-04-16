@@ -71,7 +71,7 @@ public class loginController {
 	@PostMapping(value= "/autenticarUsuario")
 	public ModelAndView autenticaUsuario() {
 		UsuarioLogado user = new UsuarioLogado();
-		model = new ModelAndView("redirect:perfil/"+user.getUsuario().getUserName().toString());
+		model = new ModelAndView("redirect:"+user.getUsuario().getUserName().toString());
 		return model;
 	}
 	
@@ -82,7 +82,7 @@ public class loginController {
     }
 	
 	
-	@GetMapping(value = "/perfil/{username}")
+	@GetMapping(value = "/{username}")
 	public ModelAndView dashUser(@PathVariable String username) {
 		UsuarioLogado user = new UsuarioLogado();
 		if (username.equals(user.getUsuario().getUserName())) {
