@@ -31,12 +31,6 @@ public class loginController {
 		return model;
 	}
 	
-	@GetMapping(value = "/adm")
-	public ModelAndView adm() {
-		model = new ModelAndView("adm.html");
-		return model;
-	}
-	
 	@GetMapping(value = "/registrar")
 	public ModelAndView registrar(@RequestParam(value = "msg", required = false) String msg) {
 		model = new ModelAndView("login/registrarForm.html");
@@ -45,11 +39,6 @@ public class loginController {
 		return model;
 	}
 	
-	@PostMapping(value="/principal")
-	public ModelAndView dash() {
-		model= new ModelAndView("dash.html");
-		return model;
-	}
 	@PostMapping(value = "/salvarUsuario")
 	public ModelAndView salvarUsuario(@ModelAttribute(value = "form") UsuarioDTO form, BindingResult bindingResult) {
 		Usuario usuario = usuarioService.converteFromUser(form);
