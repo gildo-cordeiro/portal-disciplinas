@@ -1,0 +1,166 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal das Disciplinas</title>
+<link rel="stylesheet"
+	href="../../resources/assets/bootstrap/css/bootstrap.min.css"
+	th:href="@{/resources/assets/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+	// Load the Visualization API and the corechart package.
+	google.charts.load('current', {
+		'packages' : [ 'corechart' ]
+	});
+
+	// Set a callback to run when the Google Visualization API is loaded.
+	google.charts.setOnLoadCallback(drawChart);
+
+	// Callback that creates and populates a data table,
+	// instantiates the pie chart, passes in the data and
+	// draws it.
+	function drawChart() {
+
+		// Create the data table.
+		var data = new google.visualization.DataTable();
+		data.addColumn('string', 'Topping');
+		data.addColumn('number', 'Slices');
+		data.addRows([ [ 'Matemática', 3 ], [ 'Logica computacional', 1 ], [ 'Java', 1 ],
+				[ 'PHP', 1 ], [ 'Rede De computadores', 2 ] ]);
+
+		// Set chart options
+		var options = {
+			'title' : 'Confira suas Skills',
+			'width' : 400,
+			'height' : 300
+		};
+
+		// Instantiate and draw our chart, passing in some options.
+		var chart = new google.visualization.PieChart(document
+				.getElementById('chart_div2'));
+		chart.draw(data, options);
+	}
+	
+	/*bar char*/
+	google.charts.load('current', {packages: ['corechart', 'bar']});
+	google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['City', '2010 Population',],
+        ['New York City, NY', 8175000],
+        ['Los Angeles, CA', 3792000],
+        ['Chicago, IL', 2695000],
+        ['Houston, TX', 2099000],
+        ['Philadelphia, PA', 1526000]
+      ]);
+
+      var options = {
+        title: 'Population of Largest U.S. Cities',
+        chartArea: {width: '50%'},
+        hAxis: {
+          title: 'Total Population',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'City'
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+</script>
+</head>
+
+
+
+
+</head>
+<body>
+	<div class="container bg-dark mt-1">
+		<h1 class="text-light">Loirinha 10/10</h1>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-2">
+					<div class="card card-profile">
+						<div class="avatar">
+							<img alt="" src="http://lorempixel.com/100/100/people/9/">
+						</div>
+						<div class="dropdown show mt-2">
+							<a class="btn btn-secondary" th:href="@{/principal}">Return</a>
+		
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	</div>
+	<!-- barra de opções -->
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+					<a class="navbar-brand" href="#">####</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarNavAltMarkup"
+						aria-controls="navbarNavAltMarkup" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+						<div class="navbar-nav">
+							<a class="nav-item nav-link active" href="#">pesquisar Demos<span
+								class="sr-only">(current)</span></a> <a class="nav-item nav-link"
+								href="#">Videos recentes</a> <a class="nav-item nav-link" href="#">Ver
+								disciplinas</a> <a class="nav-item nav-link disabled" href="#">Disabled</a>
+						</div>
+					</div>
+				</nav>
+
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h1>Seus atributos</h1>
+				<div id="chart_div" class="d-block"></div>
+			</div>
+			<div class="col-md-6">
+				<div id="chart_div2"></div>
+			</div>
+			
+		</div>
+	</div>
+		<!--Div that will hold the pie chart-->
+	
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="../../resources/assets/bootstrap/js/bootstrap.min.js"
+		th:src="@{/resources/assets/bootstrap/js/bootstrap.min.js}"></script>
+	<script
+		src="../../resources/assets/bootstrap-dropdown-hover/js/bootstrap-dropdownhover.min.js"
+		th:src="@{/resources/assets/bootstrap-dropdown-hover/js/bootstrap-dropdownhover.min.js}"
+		type="text/javascript"></script>
+	<script
+		src="../../resources/assets/OwlCarousel2/dist/js/owl.carousel.min.js"
+		th:src="@{/resources/assets/OwlCarousel2/dist/js/owl.carousel.min.js}"></script>
+	<script src="../../resources/assets/parallax.js-1.5.0/parallax.js"
+		th:src="@{/resources/assets/parallax.js-1.5.0/parallax.js}"></script>
+	<script src="../../resources/assets/js/navbar.js"
+		th:src="@{/resources/assets/js/navbar.js}"></script>
+	<script src="../../resources/assets/js/script.js"
+		th:src="@{/resources/assets/js/script.js}"></script>
+</body>
+</html>
