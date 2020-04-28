@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.thymeleaf.ITemplateEngine;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
@@ -33,7 +34,11 @@ public class ThymeleafConfig {
 	public SpringTemplateEngine sprinhTemplateEngine(ITemplateResolver templateResolver) {
 		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.addTemplateResolver(new UrlTemplateResolver());
-        templateEngine.addTemplateResolver(templateResolver());
+        templateEngine.addTemplateResolver(templateResolver());	
+        
+        //O sec so funciona com essas configurações abaixo 
+        templateEngine.setEnableSpringELCompiler(true);
+        templateEngine.addDialect(new SpringSecurityDialect());
         return templateEngine;
 	}
 	

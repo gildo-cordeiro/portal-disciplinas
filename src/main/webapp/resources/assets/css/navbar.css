@@ -1,5 +1,5 @@
 
-.dropdown:hover > .dropdown-menu{
+.dropdown:hover > #drop{
     display: block;
 }
 
@@ -39,7 +39,7 @@
 }
 
 /*animação do dropdown do menu inicial*/
-.dropdown-menu{
+#drop{
     width: 11vw;
     border-radius: 0px;
     font-weight: 400;
@@ -56,14 +56,14 @@
     box-shadow: 4px 9px 25px -6px rgba(77,77,77,0.61);
 }
 
-li.dropdown:hover ul.dropdown-menu{
+li.dropdown:hover ul#drop{
     display: block;
 }
-.dropdown-menu a:hover{
+#drop a:hover{
   color: #11257c;
 }
 
-.dropdown-menu li{
+#drop li{
   border-bottom: 1px solid #ccc;
   padding: 20px;
   display:block;
@@ -72,10 +72,14 @@ li.dropdown:hover ul.dropdown-menu{
     font-weight: bolder;
 	color: #000000;
 }
-.dropdown-menu a{
+#drop a{
  text-decoration: none;
  text-transform: capitalize;
 }
+#drop-menu{
+	margin-left: -90px;	
+}
+
 @keyframes mymove {
     from {
       left:  100px;
@@ -106,4 +110,8 @@ ul.navbar-nav .nav-item:after {
 .navbar-nav .nav-item:hover:after {
     width: 100%;
     background:#11257c;
+}
+
+#drop-perfil:after{
+	display: none;
 }

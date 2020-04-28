@@ -1,50 +1,89 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:fragment="head">
-	
+
 </head>
 <body>
-	 <nav class="navbar navbar-expand-lg fixed-top nav-header" style="height: 70px;" th:fragment="head">
-	    <!-- Just an image -->
-	   <div class="container">
-	     <nav class="navbar navbar-light">
-	       <a class="navbar-brand" href="#">
-	         <!-- <img th:src="@{/resources/imagens/ufrnPreto.png}" src="../../resources/imagens/ufrnPreto.png" width="150" height="90" alt="">-->
-	       </a>
-	     </nav>
-	     <button class="pull-left navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	       <span class="navbar-toggler-icon"></span>
-	     </button>
-	     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	       <ul class="navbar-nav ml-auto">
-	         <li class="nav-item">
-	           <a class="nav-link item" href="#">Inicio</a>
-	         </li>
-	         <li class="nav-item">
-	           <a class="nav-link item" href="#">Portal das disciplinas?</a>
-	         </li>
-	         <li class="nav-item dropdown">
-	           <a class="nav-link dropdown-toggle item" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	             Informações
-	           </a>
-	           <div class="dropdown-menu" id="drop">
-	             <a class="dropdown-item" href="#">Action</a>
-	             <a class="dropdown-item" href="#">Another action</a>
-	             <div class="dropdown-divider"></div>
-	             <a class="dropdown-item" href="#">Something else here</a>
-	           </div>
-	         </li>
-	         <li class="nav-item">
-	           <a class="nav-link item" href="#">Contato</a>
-	         </li>
-	       </ul>
-	     </div>
-	     <div class="navbar navbar-light">
-	     	<a th:href="@{/login}" class="btn btn-lg btn-outline-primary" id="button-nav">
-				ENTRAR
-			</a>
-       </div>
-   	</div>
-   </nav>
+	<nav class="navbar navbar-expand-lg fixed-top nav-header"
+		style="height: 70px;" th:fragment="head">
+		<div class="container">
+			<nav class="navbar navbar-light">
+				<a class="navbar-brand" href="#"> <!-- <img th:src="@{/resources/imagens/ufrnPreto.png}" src="../../resources/imagens/ufrnPreto.png" width="150" height="90" alt="">-->
+				</a>
+			</nav>
+
+			<button class="pull-left navbar-toggler" type="button"
+				data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav navbar-left ml-auto">
+					<li class="nav-item"><a class="nav-link item" href="#">Inicio</a>
+					</li>
+					<li class="nav-item"><a class="nav-link item" href="#">Portal
+							das disciplinas?</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle item" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Informações </a>
+						<div class="dropdown-menu" id="drop">
+							<a class="dropdown-item" href="#">Action</a> <a
+								class="dropdown-item" href="#">Another action</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div></li>
+					<li class="nav-item"><a class="nav-link item" href="#">Contato</a>
+					</li>
+				</ul>
+			</div>
+			<div class="navbar navbar-light">
+				<ul class="nav navbar-nav navbar-right" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_PROFESSOR','ROLE_ALUNO')">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="drop-perfil"> 
+							<strong class="nav" style="font-size: 20px;"> 
+								<span> 
+									<img height="25px" style="border-radius: 25px;" th:src="@{/resources/imagens/blendS.jpg}" src="" alt="">
+								</span> 
+								<span class="perfil"></span>
+							</strong>
+						</a>
+						<ul class="dropdown-menu" id="drop-menu">
+							<li>
+								<div class="navbar-login">
+									<div class="col-lg-12">
+										<p class="text-center">
+											<span> 
+											<img src="" height="150px" th:src="@{/resources/imagens/blendS.jpg}" class="rounded-circle"
+												style="border-color: #ff6600;" alt="avatar">
+											</span>
+										</p>
+									</div>
+									<div class="col-md-12 text-center">
+										
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="navbar-login navbar-login-session">
+									<div class="col-md-12">
+										<form th:action="@{/logout}" method="post">
+										    <button type="submit" class="btn btn-danger btn-block">LOGOUT</button>
+										</form>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="navbar navbar-light" sec:authorize="hasRole('ROLE_ANONYMOUS')">
+				<a th:href="@{/login}" class="btn btn-lg btn-outline-primary"
+					id="button-nav"> ENTRAR </a>
+			</div>
+		</div>
+	</nav>
 </body>
 </html>
