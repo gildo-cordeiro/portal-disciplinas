@@ -2,7 +2,7 @@
 body {
 	margin:0;
 	color:#edf3ff;
-	background-image: url(../../imagens/loginBack.jpg);
+	background-image: url(../../imagens/background-blue.jpg);
 	background-size: cover;
 }
 
@@ -12,7 +12,7 @@ body {
 	max-width: 800px;
 	min-height: 710px;
 	position: relative;
-	background-image: url(../../imagens/loginBack.jpg);
+	background-image: url(../../imagens/background-blue.jpg);
 	background-size: cover;
 	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 	border-radius: 12px;
