@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disciplinas</title>
+<link rel="stylesheet"
+	href="../../../resources/assets/bootstrap/css/bootstrap.min.css"
+	th:href="@{/resources/assets/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+.sub-conteudo {
+	background: rgb(2, 4, 11);
+	background: linear-gradient(344deg, rgba(2, 4, 11, 1) 0%,
+		rgba(48, 69, 207, 1) 46%);
+	height: 150px;
+}
+</style>
+</head>
+<body>
+	<section class="section page-header">
+		<div class="user-menu">
+			<p style="text-align: center;">MENU AQUI</p>
+		</div>
+		<div class="sub-conteudo">
+			<div class="container">
+				<div class="col-md-12 col-sm-12">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="mt-4 conteudo-left">
+								<img src="../../../resources/imagens/blendS.jpg" alt="..."
+									class="img-thumbnail rounded float-left" width="100px"
+									th:src="@{resources/imagens/blendS.jpg}">
+								<div>
+									<p class="h1">Nome de usario</p>
+									<p class="lead">Sei la</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="mt-4 conteudo-right">
+								<!-- Fazer um media query aqui para esse conteudo desaparecer em resoluções pequenas -->
+								<p class="h1">Outras info</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section section-md bg-default mt-3">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5 offset-md-7">
+					<form action="#" method="get">
+						<div class="form-group">
+							<label for="search">Pesquisar</label> <input type="email"
+								class="form-control" id="search" aria-describedby="search"
+								placeholder="Ex.: FMC - I">
+						</div>
+						<button type="submit" class="btn btn-primary offset-md-10">Enviar</button>
+					</form>
+				</div>
+				<div class="col-md-12 mt-5">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="card mb-3">
+								<img class="card-img-top"
+									src="../../../resources/imagens/cardbrandS.jpg"
+									alt="Card image cap"
+									th:src="@{resources/imagens/cardbrandS.jpg}">
+								<div class="card-body">
+									<h5 class="card-title">Fundamentos Matematicos
+										Computacionias - I</h5>
+									<p class="card-text">
+										<b>Código: </b>1FE34G
+									</p>
+									<p class="card-text">
+										<b>Professor: </b>BIG THANOS
+									</p>
+									<p class="card-text">
+										<b>Semestre Atual: </b>BIG THANOS
+									</p>
+									<p class="card-text">
+										<small class="text-muted">Last updated 3 mins ago</small>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card mb-3">
+								<img class="card-img-top"
+									src="../../../resources/imagens/cardbrandS.jpg"
+									alt="Card image cap"
+									th:src="@{resources/imagens/cardbrandS.jpg}">
+								<div class="card-body">
+									<h5 class="card-title">Fundamentos Matematicos
+										Computacionias - I</h5>
+									<p class="card-text">
+										<b>Código: </b>1FE34G
+									</p>
+									<p class="card-text">
+										<b>Professor: </b>BIG THANOS
+									</p>
+									<p class="card-text">
+										<b>Semestre Atual: </b>BIG THANOS
+									</p>
+									<p class="card-text">
+										<small class="text-muted">Last updated 3 mins ago</small>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card mb-3">
+								<img class="card-img-top"
+									src="../../../resources/imagens/cardbrandS.jpg"
+									alt="Card image cap"
+									th:src="@{resources/imagens/cardbrandS.jpg}">
+								<div class="card-body">
+									<h5 class="card-title">Fundamentos Matematicos
+										Computacionias - I</h5>
+									<p class="card-text">
+										<b>Código: </b>1FE34G
+									</p>
+									<p class="card-text">
+										<b>Professor: </b>BIG THANOS
+									</p>
+									<p class="card-text">
+										<b>Semestre Atual: </b>BIG THANOS
+									</p>
+									<p class="card-text">
+										<small class="text-muted">Last updated 3 mins ago</small>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card mb-3">
+								<img class="card-img-top"
+									src="../../../resources/imagens/cardbrandS.jpg"
+									alt="Card image cap"
+									th:src="@{resources/imagens/cardbrandS.jpg}">
+								<div class="card-body">
+									<h5 class="card-title">Fundamentos Matematicos
+										Computacionias - I</h5>
+									<p class="card-text">
+										<b>Código: </b>1FE34G
+									</p>
+									<p class="card-text">
+										<b>Professor: </b>BIG THANOS
+									</p>
+									<p class="card-text">
+										<b>Semestre Atual: </b>BIG THANOS
+									</p>
+									<p class="card-text">
+										<small class="text-muted">Last updated 3 mins ago</small>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card mb-3">
+								<img class="card-img-top"
+									src="../../../resources/imagens/cardbrandS.jpg"
+									alt="Card image cap"
+									th:src="@{resources/imagens/cardbrandS.jpg}">
+								<div class="card-body">
+									<h5 class="card-title">Fundamentos Matematicos
+										Computacionias - I</h5>
+									<p class="card-text">
+										<b>Código: </b>1FE34G
+									</p>
+									<p class="card-text">
+										<b>Professor: </b>BIG THANOS
+									</p>
+									<p class="card-text">
+										<b>Semestre Atual: </b>BIG THANOS
+									</p>
+									<p class="card-text">
+										<small class="text-muted">Last updated 3 mins ago</small>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card mb-3">
+								<img class="card-img-top"
+									src="../../../resources/imagens/cardbrandS.jpg"
+									alt="Card image cap"
+									th:src="@{resources/imagens/cardbrandS.jpg}">
+								<div class="card-body">
+									<h5 class="card-title">Fundamentos Matematicos
+										Computacionias - I</h5>
+									<p class="card-text">
+										<b>Código: </b>1FE34G
+									</p>
+									<p class="card-text">
+										<b>Professor: </b>BIG THANOS
+									</p>
+									<p class="card-text">
+										<b>Semestre Atual: </b>BIG THANOS
+									</p>
+									<p class="card-text">
+										<small class="text-muted">Last updated 3 mins ago</small>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div th:insert="../layout/footer::foot"></div>
+</body>
+</html>
