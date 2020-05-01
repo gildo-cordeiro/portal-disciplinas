@@ -14,4 +14,10 @@ public class DisciplinaController {
 		model = new ModelAndView("disciplina/disciplinas.html");
 		return model;
 	}
+	
+	@GetMapping(value = "/disciplinas/nova-disciplina")
+	public ModelAndView cadastrarDisciplinasView() {
+		model = new ModelAndView("disciplina/cadastrar-disciplina.html");
+		return model;
+	}
 }
