@@ -96,8 +96,7 @@ function drawBasic() {
 							<img alt="" src="http://lorempixel.com/100/100/people/9/">
 						</div>
 						<div class="dropdown show mt-2">
-							<a class="btn btn-secondary" th:href="@{/principal}">Return</a>
-		
+							<a class="btn btn-secondary ml-5" th:href="@{usuario.getUserName()}">Return</a>
 						</div>
 					</div>
 				</div>
@@ -142,16 +141,27 @@ function drawBasic() {
 		<div class="row m-0">
 		<div class="col-md-3 m-0">
 				<nav class="">
-					<ul class="list-group m-0">
+					<ul class="list-group m-0" id="menu-perfil">
 						<div class="d-block">
-							<li class="list-group-item disabled hover-ligth">materias</li>
+							<li class="list-group-item change-on-click text-secondary">materias</li>
 						</div>
 						<div class="d-block" >
-							<li class="list-group-item disabled hover-ligth">videos</li>
+							<li class="list-group-item change-on-click text-secondary">videos</li>
 						</div>
-						<li class="list-group-item disabled">histórico</li>
-						<li class="list-group-item disabled">matchs</li>
-						<li class="list-group-item disabled">atributos</li>
+						<div class="d-block">
+							<li class="list-group-item change-on-click text-secondary">histórico</li>
+						</div>
+						<div class="d-block">
+							<li class="list-group-item change-on-click text-secondary">histórico</li>
+						</div>
+						
+						<div class="d-block">
+							<li class="list-group-item change-on-click text-secondary">matchs</li>
+						</div>
+						<div class="d-block">
+							<li class="list-group-item change-on-click text-secondary">atributos</li>
+						</div>
+						
 					</ul>
 				</nav>
 			</div>
@@ -185,7 +195,7 @@ function drawBasic() {
 		th:src="@{/resources/assets/js/navbar.js}"></script>
 	<script src="../../resources/assets/js/script.js"
 		th:src="@{/resources/assets/js/script.js}"></script>
-		<script src="../../resources/assets/js/hover.js"
-		th:src="@{/resources/assets/js/hover.js}"></script>
+		<script src="../../resources/assets/js/change-on-click.js"
+		th:src="@{/resources/assets/js/change-on-click.js}"></script>
 </body>
 </html>
