@@ -9,8 +9,10 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
+
 <script type="text/javascript">
 	// Load the Visualization API and the corechart package.
 	google.charts.load('current', {
@@ -84,7 +86,7 @@ function drawBasic() {
 
 </head>
 <body>
-	<div class="container bg-dark mt-1">
+	<div class="container-fluid bg-dark mt-1 m-0">
 		<h1 class="text-light">Loirinha 10/10</h1>
 		<div class="row">
 			<div class="col-md-12">
@@ -104,8 +106,14 @@ function drawBasic() {
 		</div>
 	</div>
 	</div>
+	<div class="container">
+		<div class="row">
+			
+		</div>
+
+	</div>
 	<!-- barra de opções -->
-	<div class="container mt-5">
+	<!-- <div class="container mt-1">
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -128,15 +136,30 @@ function drawBasic() {
 
 			</div>
 		</div>
-	</div>
+	</div>-->
 	
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
+	<div class="container m-0">
+		<div class="row m-0">
+		<div class="col-md-3 m-0">
+				<nav class="">
+					<ul class="list-group m-0">
+						<div class="d-block">
+							<li class="list-group-item disabled hover-ligth">materias</li>
+						</div>
+						<div class="d-block" >
+							<li class="list-group-item disabled hover-ligth">videos</li>
+						</div>
+						<li class="list-group-item disabled">histórico</li>
+						<li class="list-group-item disabled">matchs</li>
+						<li class="list-group-item disabled">atributos</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="col-md-4">
 				<h1>Seus atributos</h1>
 				<div id="chart_div" class="d-block"></div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<div id="chart_div2"></div>
 			</div>
 			
@@ -162,5 +185,7 @@ function drawBasic() {
 		th:src="@{/resources/assets/js/navbar.js}"></script>
 	<script src="../../resources/assets/js/script.js"
 		th:src="@{/resources/assets/js/script.js}"></script>
+		<script src="../../resources/assets/js/hover.js"
+		th:src="@{/resources/assets/js/hover.js}"></script>
 </body>
 </html>
