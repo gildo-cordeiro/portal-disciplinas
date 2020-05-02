@@ -2,6 +2,7 @@ package com.gildocordeiro.portal.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +17,9 @@ public class Turma implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+	@Column(unique = true, nullable = false)
+	private String codigo;	
+	private String nome;
 	private String descricao;
 	private Float nota_aula_expositiva;
 	private Float nota_aula_pratica;
@@ -113,6 +116,14 @@ public class Turma implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 }

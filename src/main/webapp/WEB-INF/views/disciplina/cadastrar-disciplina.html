@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastrar disciplinas</title>
+<link rel="stylesheet"
+	href="../../../resources/assets/bootstrap/css/bootstrap.min.css"
+	th:href="@{/resources/assets/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet"
+	href="../../../resources/assets/css/disciplinas.css"
+	th:href="@{/resources/assets/css/disciplinas.css}">
+<link rel="stylesheet" href="../../../resources/assets/css/footer.css"
+	th:href="@{/resources/assets/css/footer.css}">
+</head>
+<body>
+	<section class="section page-header">
+		<div class="user-menu">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<a class="navbar-brand" href="#">Navbar</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarNav" aria-controls="navbarNav"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">Features</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="#">Pricing</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="#">Disabled</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="sub-conteudo">
+			<div class="container">
+				<div class="col-md-12 col-sm-12">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="mt-4">
+								<img src="../../../resources/imagens/blendS.jpg" alt="..."
+									class="img-thumbnail rounded float-left" width="100px"
+									th:src="@{resources/imagens/blendS.jpg}">
+								<div class="float-left ml-4">
+									<p class="h1">Nome de usario</p>
+									<p class="lead">Sei la</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="mt-4 float-right">
+								<!-- Fazer um media query aqui para esse conteudo desaparecer em resoluções pequenas -->
+								<p class="h1">Outras info</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section section-md bg-default mt-3 mb-5">
+		<div class="container">
+			<div class="col-md-12 col-sm-12">
+				<div class="page-header" align="center">
+				    <h1>Cadastro de disciplinas</h1>      
+			 	</div>
+			 	<p align="center">This is some text.</p>    
+			 	<hr>
+				<form action="#" method="post" class="needs-validation mt-5" novalidate>
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="form-group">
+								<label for="codigo">Código</label> 
+								<input type="text" class="form-control" id="codigo" placeholder="Ex.: 3467JKS" required="required">
+								<div class="valid-feedback">
+							        OK!
+							    </div>
+					    		<div class="invalid-feedback">
+						      		Por favor, preencha o codigo.
+						    	</div>
+							</div>
+							<div class="form-group">
+								<label for="nome">Nome</label> 
+								<input type="text"class="form-control" id="nome" placeholder="Nome" required="required">
+								<div class="valid-feedback">
+							        OK!
+							    </div>
+							    <div class="invalid-feedback">
+						      		Por favor, preencha o nome.
+						    	</div>
+							</div>
+							<div class="form-group">
+								<div class="mb-3">
+							    	<label for="desc">Descrição</label>
+							    	<textarea class="form-control" id="desc" placeholder="Coloque a descrição da disciplina aqui" rows="3" required="required"></textarea>
+							    	<div class="invalid-feedback">
+							      		Por favor, preecha o campo com alguma mensagem.
+							    	</div>
+						    	</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-12">
+							<div class="form-group mb-3" style="margin-top: 32px !important;">
+								<select	class="custom-select" id="turmas" required="required">
+									<option value="">Selecionar</option>
+									<option value="2">2</option>
+								</select>
+								<div class="invalid-feedback">
+						          Por favor, escolha uma opção.
+						        </div>						
+							</div>
+							<div class="custom-file" style="margin-top: 32px !important;">
+								<input type="file" class="custom-file-input" id="file" required="required">
+								<label class="custom-file-label" for="file">Escolher arquivo...</label>
+								<div class="invalid-feedback">
+									Valor invalido.
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12 mt-4" align="center">
+							<button type="submit"
+								class="btn btn-outline-success col-md-3 col-sm-12"
+								style="height: 38px;">
+								<span class="material-icons">add_circle_outline</span>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<div th:insert="layout/footer::foot"></div>
+	<script src="../../../resources/assets/js/cadastro-disciplina.js" 
+		th:src="@{/resources/assets/js/cadastro-disciplina.js}"></script>	
+</body>
+</html>

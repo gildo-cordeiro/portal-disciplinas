@@ -16,7 +16,7 @@ import com.gildocordeiro.portal.service.UsuarioService;
 import com.gildocordeiro.portal.utils.UsuarioLogado;
 
 @RestController
-public class loginController {
+public class LoginController {
 	
 	ModelAndView model;
 	

@@ -15,7 +15,6 @@ import com.gildocordeiro.portal.domain.enums.TipoMultimidia;
 public class Multimidia implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -23,6 +22,7 @@ public class Multimidia implements Serializable{
 	private String titulo;
 	private String link;
 	private Integer tipo;
+	private boolean ativo;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_usuario")
@@ -109,6 +109,14 @@ public class Multimidia implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 	
 }
