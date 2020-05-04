@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--OBS.: Caso queira adicionar alguma coisa de outras paginas use th:block layout:fragment='<seu fragmento>' 
+	acredito que atraves disso funcione (fiz isso com os css e js). Caso não funcione de uma olhada na doc
+	do Thymeleaf.
+-->
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+<head>
+	
+	<!-- O titulo vai ser trocado pelo titulo da pagina -->
+	<title layout:title-pattern="$CONTENT_TITLE">Titulo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<!-- Links default -->
+	<link rel="stylesheet" href="../../../resources/assets/bootstrap/css/bootstrap.min.css" th:href="@{/resources/assets/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="../../../resources/assets/css/footer.css" th:href="@{/resources/assets/css/footer.css}">
+	
+	<!-- blocos de links unicos de cada pagina -->
+	<th:block layout:fragment="style"></th:block>
+</head>
+<body>
+	<!-- a parte superior com o menu vai ser inserida aqui-->
+	<section class="section page-header" th:insert="~{templates/heade::heade}"></section>
+	
+	<!-- conteudo central -->
+	<section class="section section-md bg-default mt-3 mb-5">
+		<div class="container">
+			<!-- essa div vai ser substituida pelo conteudo da pagina -->
+			<div layout:fragment="content"></div>
+		</div>
+	</section>
+	
+	<!-- a parte inferior vai ser inserida aqui -->
+	<footer class="page-footer font-small blue pt-4" id="footer">
+		<div class="container" th:insert="templates/footer::foot"></div>
+		
+		<!-- scripts defaults -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="../../resources/assets/bootstrap/js/bootstrap.min.js" th:src="@{/resources/assets/bootstrap/js/bootstrap.min.js}"></script>
+		
+		<!-- blocos de scripts unicos de cada pagina -->
+		<th:block layout:fragment="script"></th:block>
+	</footer>
+</body>
+</html>
