@@ -35,6 +35,13 @@ public class Multimidia implements Serializable{
 	public Multimidia() {
 		
 	}
+	
+	public Multimidia(String titulo, String link, Integer tipo, boolean ativo) {
+		this.titulo = titulo;
+		this.link = link;
+		this.tipo = tipo;
+		this.ativo = ativo;
+	}
 
 	public Integer getId() {
 		return id;

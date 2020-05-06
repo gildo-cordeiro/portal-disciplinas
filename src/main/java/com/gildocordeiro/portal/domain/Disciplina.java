@@ -22,7 +22,7 @@ public class Disciplina implements Serializable{
 	private String codigo;	
 	private String nome;
 	private String descricao;
-	
+
 	@OneToMany(mappedBy = "disciplina")
 	private List<Historico> historicos;
 	
@@ -32,6 +32,17 @@ public class Disciplina implements Serializable{
 	@OneToMany(mappedBy = "disciplina")
 	private List<Multimidia> multimidias;
 	
+	public Disciplina() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Disciplina(String codigo, String nome, String descricao, Multimidia multimidia) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.multimidias.add(multimidia);
+	}
 	
 	public List<Multimidia> getMultimidias() {
 		return multimidias;

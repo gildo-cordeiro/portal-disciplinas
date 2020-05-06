@@ -2,9 +2,10 @@ package com.gildocordeiro.portal.domain.enums;
 
 public enum TipoMultimidia {
 	
-	VIDEO(1, "Vídeo"),
-	AUDIO(2, "Música"),
-	PDF(3, "PDF");
+	VIDEO(1, "VIDEO"),
+	AUDIO(2, "MUSICA"),
+	PDF(3, "PDF"),
+	IMG(4,"IMAGEM");
 	
 	private int codigo;
 	private String descricao;
