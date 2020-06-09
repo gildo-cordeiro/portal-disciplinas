@@ -17,14 +17,14 @@
 		</div>
 		<p align="center">This is some text.</p>
 		<hr>
-		<form action="@{/disciplinas/nova-disciplina/salvar}" method="post" class="needs-validation mt-5"
+		<form th:action="@{/disciplina/nova-disciplina/salvar}" th:object="${disciplinaDTO}" method="post" class="needs-validation mt-5"
 			novalidate="novalidate" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-md-6 col-sm-12">
 					<div class="form-group">
 						<label for="codigo">Código</label> <input type="text"
 							class="form-control" id="codigo" placeholder="Ex.: 3467JKS"
-							required="required">
+							required="required" th:field="*{codigo}">
 						<div class="valid-feedback">OK!</div>
 						<div class="invalid-feedback">Por favor, preencha o codigo.
 						</div>
@@ -32,7 +32,7 @@
 					<div class="form-group">
 						<label for="nome">Nome</label> <input type="text"
 							class="form-control" id="nome" placeholder="Nome"
-							required="required" >
+							required="required" th:field="*{nome}">
 						<div class="valid-feedback">OK!</div>
 						<div class="invalid-feedback">Por favor, preencha o nome.</div>
 					</div>
@@ -41,7 +41,7 @@
 							<label for="desc">Descrição</label>
 							<textarea class="form-control" id="desc"
 								placeholder="Coloque a descrição da disciplina aqui" rows="3"
-								required="required" ></textarea>
+								required="required" th:field="*{descricao}"></textarea>
 							<div class="invalid-feedback">Por favor, preecha o campo
 								com alguma mensagem.</div>
 						</div>

@@ -1,4 +1,4 @@
-package com.gildocordeiro.portal.utils;
+package com.gildocordeiro.portal.controller;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -8,17 +8,21 @@ import java.io.FileOutputStream;
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.multipart.MultipartFile;
 
-public class UploadFile {
+@Controller
+@EnableAutoConfiguration
+public class UploadFileController {
 
-	@Autowired
-	private ServletContext context;
+	@Autowired 
+	protected ServletContext context;
 	private BufferedInputStream in;
 
 	public String uploadImagem(MultipartFile img) throws Exception {
 
-		String path = context.getRealPath("/resources/imagens/thumb/");
+		String path = context.getRealPath("/webapp/resources/imagens/thumb/");
 
 		try {
 

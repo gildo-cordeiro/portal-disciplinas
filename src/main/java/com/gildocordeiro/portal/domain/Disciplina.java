@@ -1,6 +1,7 @@
 package com.gildocordeiro.portal.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -23,6 +24,18 @@ public class Disciplina implements Serializable{
 	private String nome;
 	private String descricao;
 
+	public Disciplina() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Disciplina(String codigo, String nome, String descricao, Multimidia multimidia) {
+		this.codigo = codigo;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.multimidias.add(multimidia);
+	}
+	
+	
 	@OneToMany(mappedBy = "disciplina")
 	private List<Historico> historicos;
 	
@@ -30,19 +43,8 @@ public class Disciplina implements Serializable{
 	private List<Turma> turmas;
 	
 	@OneToMany(mappedBy = "disciplina")
-	private List<Multimidia> multimidias;
+	private List<Multimidia> multimidias = new ArrayList<Multimidia>();
 	
-	public Disciplina() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	public Disciplina(String codigo, String nome, String descricao, Multimidia multimidia) {
-		super();
-		this.codigo = codigo;
-		this.nome = nome;
-		this.descricao = descricao;
-		this.multimidias.add(multimidia);
-	}
 	
 	public List<Multimidia> getMultimidias() {
 		return multimidias;

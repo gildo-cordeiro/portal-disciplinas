@@ -10,8 +10,8 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 import com.gildocordeiro.portal.configs.WebConfig;
 
-public class PortalDisciplinasApplication extends AbstractAnnotationConfigDispatcherServletInitializer{
-	
+public class PortalDisciplinasApplication extends AbstractAnnotationConfigDispatcherServletInitializer {
+
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		return null;
@@ -19,61 +19,32 @@ public class PortalDisciplinasApplication extends AbstractAnnotationConfigDispat
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class[]{WebConfig.class};
+		return new Class[] { WebConfig.class };
 	}
 
 	@Override
 	protected String[] getServletMappings() {
-		return new String[]{"/"};
+		return new String[] { "/" };
 	}
-	
+
 	@Override
-    protected FrameworkServlet createDispatcherServlet(WebApplicationContext servletAppContext ) {
+	protected FrameworkServlet createDispatcherServlet(WebApplicationContext servletAppContext) {
 		DispatcherServlet dispatcher = (DispatcherServlet) super.createDispatcherServlet(servletAppContext);
-        dispatcher.setThrowExceptionIfNoHandlerFound(true);
-        return dispatcher;
-    }
-	
+		dispatcher.setThrowExceptionIfNoHandlerFound(true);
+		
+		return dispatcher;
+	}
+
 	@Override
 	protected Filter[] getServletFilters() {
-		return new Filter[] {characterEncodingFilter()};
+		CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+
+		characterEncodingFilter.setEncoding("UTF-8");
+		characterEncodingFilter.setForceEncoding(true);
+		
+		return new Filter[] { characterEncodingFilter };
 	}
 	
-	private CharacterEncodingFilter characterEncodingFilter() {
-       CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
-       
-       characterEncodingFilter.setEncoding("UTF-8");
-       characterEncodingFilter.setForceEncoding(true);
-       
-       return characterEncodingFilter;
-   }
-	
-	
-	
-//	@Override
-//    public void onStartup(ServletContext servletContext) throws ServletException {
-//        AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
-//        
-//        applicationContext.scan(PortalDisciplinasApplication.class.getPackage().getName());
-//                
-//        servletContext.addListener(new ContextLoaderListener(applicationContext));
-//        servletContext.addListener(new RequestContextListener());
-//        
-//        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", dispatcherServlet(applicationContext));
-//        dispatcher.setAsyncSupported(true);
-//        dispatcher.setLoadOnStartup(1);
-//        dispatcher.addMapping("/");
-//        
-//        
-//        FilterRegistration.Dynamic characterEncodingFilter = servletContext.addFilter("characterEncodingFilter", characterEncodingFilter());
-//        characterEncodingFilter.setAsyncSupported(true);
-//        characterEncodingFilter.addMappingForServletNames(dispatcherTypes(true), false, "dispatcher");
-//    }
-//    
-//    private DispatcherServlet dispatcherServlet(WebApplicationContext applicationContext) {
-//        return new DispatcherServlet(applicationContext);
-//    }
-//    
 //    private CharacterEncodingFilter characterEncodingFilter() {
 //        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
 //        

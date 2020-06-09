@@ -1,6 +1,9 @@
 package com.gildocordeiro.portal.controller;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,35 +20,48 @@ import com.gildocordeiro.portal.dto.DisciplinaDTO;
 import com.gildocordeiro.portal.service.DisciplinaService;
 
 @Controller
+@EnableAutoConfiguration
 public class DisciplinaController {
 
 	ModelAndView model;
 	
 	@Autowired
 	private DisciplinaService service;
+	
+	@Autowired protected ServletContext servletContext;
+	
+	
 
 	@GetMapping(value = "/disciplinas")
 	public ModelAndView recuperarDisciplinas() {
 		model = new ModelAndView("disciplina/disciplinas.html");
+//		System.out.println("servletcontext: "+servletContext.getRealPath("/webapp/resources/imagens/thumb/"));
 		return model;
 	}
 
 	@GetMapping(value = "/disciplinas/nova-disciplina")
 	public ModelAndView cadastrarDisciplinasView() {
 		model = new ModelAndView("disciplina/cadastrar-disciplina.html");
-		model.addObject("disciplina", new DisciplinaDTO());
+		model.addObject("disciplinaDTO", new DisciplinaDTO());
 		return model;
 	}
 
-	@PostMapping(value = "nova-disciplina/salvar")
-	public void salvarDisciplina(@ModelAttribute(value = "disciplina") DisciplinaDTO disciplinaDTO,
-			@RequestParam(value = "file") MultipartFile file, RedirectAttributes redirectAttributes) {
-		
-		Multimidia mult = new Multimidia(file.getOriginalFilename(), null, TipoMultimidia.IMG.getCodigo(), true);
+	@PostMapping(value = "/disciplina/nova-disciplina/salvar", consumes = "multipart/form-data")
+	public void salvarDisciplina(@ModelAttribute(value = "disciplinaDTO") DisciplinaDTO disciplinaDTO,
+			@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
 		
 		Disciplina disciplina = new Disciplina(disciplinaDTO.getCodigo(), disciplinaDTO.getNome(),
-				disciplinaDTO.getDescricao(), mult);
+				disciplinaDTO.getDescricao(), converteFromMultipart(file));
 		
-		service.salvar(disciplina, file);		
+		try {
+			service.salvar(disciplina, file, servletContext.getRealPath("/resources/imagens/thumb/"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+	}
+
+	public Multimidia converteFromMultipart(MultipartFile file) {
+		Multimidia m = new Multimidia(file.getOriginalFilename(), "", TipoMultimidia.IMG.getCodigo(), true);
+		return m;
 	}
 }

@@ -29,7 +29,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
+		http.csrf()
+			.disable()
+		.authorizeRequests()
 		 		.antMatchers("/professor").hasRole("PROFESSOR")
 		 		.antMatchers("/aluno").hasRole("ALUNO")
 		 		.antMatchers("/adm").hasRole("ADM")
@@ -52,6 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	//segurança customizada com o UserDetails
 	@Override
+	@Autowired
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(myUserDetailService).passwordEncoder(passwordEncoder());
 	}
