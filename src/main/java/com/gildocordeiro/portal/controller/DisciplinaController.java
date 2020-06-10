@@ -54,7 +54,7 @@ public class DisciplinaController {
 				disciplinaDTO.getDescricao(), converteFromMultipart(file));
 		
 		try {
-			service.salvar(disciplina, file, servletContext.getRealPath("/resources/imagens/thumb/"));
+			service.salvar(disciplina, file, servletContext.getContextPath());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}		
