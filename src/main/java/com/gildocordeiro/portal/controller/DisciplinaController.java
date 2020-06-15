@@ -53,11 +53,7 @@ public class DisciplinaController {
 		Disciplina disciplina = new Disciplina(disciplinaDTO.getCodigo(), disciplinaDTO.getNome(),
 				disciplinaDTO.getDescricao(), converteFromMultipart(file));
 		
-		try {
-			service.salvar(disciplina, file, servletContext.getContextPath());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}		
+		service.salvar(disciplina, file);
 	}
 
 	public Multimidia converteFromMultipart(MultipartFile file) {
