@@ -37,12 +37,14 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="mt-4">
+								<button type="button" data-toggle="modal" data-target=".image-edit-modal-lg" class="float-left" style="background-color: transparent; border-color: transparent;">
 								<img src="../../../resources/imagens/blendS.jpg" alt="..."
-									class="img-thumbnail rounded-circle float-left" width="100px"
+									class="img-thumbnail rounded-circle" width="100px"
 									th:src="@{/resources/imagens/blendS.jpg}">
+								</button>
 								<div class="float-left ml-4">
-									<p class="h1"><span sec:autentication="principal.nome"></span></p>
-									<p class="lead">Sei la</p>
+									<p class="h1"><span sec:authentication="name"></span></p>
+									<p class="h3"><a href="#" style="color: grey; font-size: 16px;">Adicionar sua biografia.</a></p>
 								</div>
 							</div>
 						</div>

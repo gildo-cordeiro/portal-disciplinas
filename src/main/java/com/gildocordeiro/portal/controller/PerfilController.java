@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.gildocordeiro.portal.domain.Usuario;
+import com.gildocordeiro.portal.utils.UsuarioLogado;
 
 @Controller
 public class PerfilController {
@@ -13,7 +13,8 @@ public class PerfilController {
 	@GetMapping(value = "/perfil")
 	public ModelAndView login() {
 		model = new ModelAndView("painel-usuario/perfiluser.html");
-		model.addObject("usuario", new Usuario());
+		UsuarioLogado user = new UsuarioLogado();
+		model.addObject("usuario", user.getUsuario().getUserName().toString());
 		return model;
 	}
 	
