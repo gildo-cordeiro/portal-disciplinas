@@ -32,7 +32,7 @@ public class UsuarioService{
 	
 	public Usuario converteFromUser(UsuarioDTO form) {
 		Usuario user = new Usuario(form.getNome(), form.getEmail(), form.getUserName(), 
-				form.getSenha(), true, Perfil.getPerfil(form.getPerfil()));
+				form.getSenha(), true, Perfil.getPerfil(form.getPerfil()), "/resources/imagens/perfil-image/default.jpg");
 		return user;
 	}
 }

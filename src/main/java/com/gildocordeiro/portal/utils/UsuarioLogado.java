@@ -18,6 +18,7 @@ public class UsuarioLogado{
 			 usuario.setUserName(((MyUserDetails) authentication.getPrincipal()).getUsername());
 			 usuario.setAtivo(((MyUserDetails) authentication.getPrincipal()).isEnabled());
 			 usuario.setSenha(((MyUserDetails) authentication.getPrincipal()).getPassword());
+			 usuario.setPath_image(((MyUserDetails) authentication.getPrincipal()).getPath_image());
 		}
 	}
 

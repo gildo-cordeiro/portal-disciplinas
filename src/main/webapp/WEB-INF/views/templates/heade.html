@@ -37,14 +37,21 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="mt-4">
-								<button type="button" data-toggle="modal" data-target=".image-edit-modal-lg" class="float-left" style="background-color: transparent; border-color: transparent;">
-								<img src="../../../resources/imagens/blendS.jpg" alt="..."
-									class="img-thumbnail rounded-circle" width="100px"
-									th:src="@{/resources/imagens/blendS.jpg}">
+								<button type="button" data-toggle="modal"
+									data-target=".image-edit-modal-lg" class="float-left"
+									style="background-color: transparent; border-color: transparent;">
+									<img alt="..."
+										class="img-thumbnail rounded-circle" width="100px"
+										th:href="#{usuario.path_image}" >
 								</button>
 								<div class="float-left ml-4">
-									<p class="h1"><span sec:authentication="name"></span></p>
-									<p class="h3"><a href="#" style="color: grey; font-size: 16px;">Adicionar sua biografia.</a></p>
+									<p class="h1">
+										<span sec:authentication="name"></span>
+									</p>
+									<p class="h3">
+										<a href="#" style="color: grey; font-size: 16px;">Adicionar
+											sua biografia.</a>
+									</p>
 								</div>
 							</div>
 						</div>
@@ -54,6 +61,66 @@
 								<p class="h1">Outras info</p>
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal image-edit-modal-lg fade" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="gallery">
+							<div class="row mb-3">
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+									<img th:src="@{/resources/imagens/perfil-image/1.jpg}"
+										alt="Imagem 01" class="img-thumbnail">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+									<img th:src="@{/resources/imagens/perfil-image/2.jpg}"
+										alt="Imagem 02" class="img-thumbnail">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+									<img th:src="@{/resources/imagens/perfil-image/3.jpg}"
+										alt="Imagem 03" class="img-thumbnail">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+									<img th:src="@{/resources/imagens/perfil-image/4.jpg}"
+										alt="Imagem 04" class="img-thumbnail">
+								</div>
+							</div>
+							<div class="row mb-3">
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+									<img th:src="@{/resources/imagens/perfil-image/5.jpg}"
+										alt="Imagem 05" class="img-thumbnail">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+									<img th:src="@{/resources/imagens/perfil-image/6.jpg}"
+										alt="Imagem 06" class="img-thumbnail">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+									<img th:src="@{/resources/imagens/perfil-image/7.jpg}"
+										alt="Imagem 07" class="img-thumbnail">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+									<img th:src="@{/resources/imagens/perfil-image/8.jpg}"
+										alt="Imagem 08" class="img-thumbnail">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save
+							changes</button>
 					</div>
 				</div>
 			</div>

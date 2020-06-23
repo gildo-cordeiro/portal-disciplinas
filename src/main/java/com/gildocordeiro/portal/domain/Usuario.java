@@ -33,19 +33,21 @@ public class Usuario implements Serializable{
 	private String userName;
 	private String senha;
 	private boolean ativo;	
+	private String path_image;
 	
 	public Usuario() {
 		
 	}
 	
 	public Usuario(String nome, String email, String userName, String senha, boolean ativo,
-			Perfil perfis) {
+			Perfil perfis, String path_image) {
 		this.nome = nome;
 		this.email = email;
 		this.userName = userName;
 		this.senha = senha;
 		this.ativo = ativo;
 		this.perfis.add(perfis);
+		this.path_image = path_image;
 	}
 
 	@ElementCollection(fetch = FetchType.EAGER)
@@ -163,6 +165,13 @@ public class Usuario implements Serializable{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	public String getPath_image() {
+		return path_image;
+	}
+
+	public void setPath_image(String path_image) {
+		this.path_image = path_image;
+	}
 
 	@Override
 	public int hashCode() {
@@ -188,7 +197,5 @@ public class Usuario implements Serializable{
 			return false;
 		return true;
 	}
-
-	
 	
 }

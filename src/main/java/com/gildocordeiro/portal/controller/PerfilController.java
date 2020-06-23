@@ -14,7 +14,7 @@ public class PerfilController {
 	public ModelAndView login() {
 		model = new ModelAndView("painel-usuario/perfiluser.html");
 		UsuarioLogado user = new UsuarioLogado();
-		model.addObject("usuario", user.getUsuario().getUserName().toString());
+		model.addObject("usuario", user.getUsuario());
 		return model;
 	}
 	
