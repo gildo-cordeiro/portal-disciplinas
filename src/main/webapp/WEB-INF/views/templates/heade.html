@@ -42,11 +42,11 @@
 									style="background-color: transparent; border-color: transparent;">
 									<img alt="..."
 										class="img-thumbnail rounded-circle" width="100px"
-										th:href="#{usuario.path_image}" >
+										th:src="@{${#authentication.getPrincipal().getPath_image()}}" >
 								</button>
 								<div class="float-left ml-4">
 									<p class="h1">
-										<span sec:authentication="name"></span>
+										<span th:text ="${#authentication.getPrincipal().getUsername()}"></span>										
 									</p>
 									<p class="h3">
 										<a href="#" style="color: grey; font-size: 16px;">Adicionar

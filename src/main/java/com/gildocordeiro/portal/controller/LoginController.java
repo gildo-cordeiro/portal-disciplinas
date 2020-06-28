@@ -1,6 +1,8 @@
 package com.gildocordeiro.portal.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,14 +14,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gildocordeiro.portal.domain.Usuario;
 import com.gildocordeiro.portal.dto.UsuarioDTO;
+import com.gildocordeiro.portal.security.MyUserDetails;
 import com.gildocordeiro.portal.service.UsuarioService;
-import com.gildocordeiro.portal.utils.UsuarioLogado;
 
 @RestController
 public class LoginController {
 	
 	ModelAndView model;
 	
+	Authentication authentication;
 
 	@Autowired
 	private UsuarioService usuarioService;
@@ -58,9 +61,9 @@ public class LoginController {
 	}
 	
 	@PostMapping(value= "/autenticarUsuario")
-	public ModelAndView autenticaUsuario() {
-		UsuarioLogado user = new UsuarioLogado();
-		model = new ModelAndView("redirect:"+user.getUsuario().getUserName().toString());
+	public ModelAndView autenticaUsuario() {	
+		authentication =  (Authentication) SecurityContextHolder.getContext().getAuthentication();
+		model = new ModelAndView("redirect:"+ ((MyUserDetails)authentication.getPrincipal()).getUsername());
 		return model;
 	}
 	
@@ -73,8 +76,8 @@ public class LoginController {
 	
 	@GetMapping(value = "/{username}")
 	public ModelAndView dashUser(@PathVariable String username) {
-		UsuarioLogado user = new UsuarioLogado();
-		if (username.equals(user.getUsuario().getUserName())) {
+		authentication =  (Authentication) SecurityContextHolder.getContext().getAuthentication();
+		if (username.equals(((MyUserDetails)authentication.getPrincipal()).getUsername())) {
 			model = new ModelAndView("dash.html");
 		}else {
 			model = new ModelAndView("pages/404.html");
