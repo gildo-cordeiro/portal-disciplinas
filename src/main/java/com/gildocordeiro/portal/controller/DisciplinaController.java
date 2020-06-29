@@ -1,5 +1,7 @@
 package com.gildocordeiro.portal.controller;
 
+import java.io.IOException;
+
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +55,12 @@ public class DisciplinaController {
 		Disciplina disciplina = new Disciplina(disciplinaDTO.getCodigo(), disciplinaDTO.getNome(),
 				disciplinaDTO.getDescricao(), converteFromMultipart(file));
 		
-		service.salvar(disciplina, file);
+		try {
+			service.salvar(disciplina, file, servletContext.getRealPath("/")+"resource/imagens/");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public Multimidia converteFromMultipart(MultipartFile file) {

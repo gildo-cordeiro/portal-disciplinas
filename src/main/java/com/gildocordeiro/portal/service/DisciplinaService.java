@@ -1,10 +1,11 @@
 package com.gildocordeiro.portal.service;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,37 +18,36 @@ public class DisciplinaService {
 
 	@Autowired
 	private DisciplinaRepository repository;
-	
-	public void salvar(Disciplina disciplina, MultipartFile MultFile) {
-		String dir = diretroio();
-		String link = dir+"/"+MultFile.getOriginalFilename();
-		
-		try {			
-			IOUtils.copyLarge(MultFile.getInputStream(), new FileOutputStream(dir));
-			
-			disciplina.getMultimidias().get(0).setLink(link);
-			repository.save(disciplina);
-		} catch (IOException e) {
 
-			throw new RuntimeException("Erro ao copiar imagem", e);
+	public void salvar(Disciplina disciplina, MultipartFile MultFile, String Path) throws IOException {
+		if (MultFile != null && !MultFile.isEmpty()) {
+			try {
+				String d = diretorio();
+				FileOutputStream out = new FileOutputStream(d+MultFile.getOriginalFilename());
+				out.close();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-	
+
 	}
-	public String diretroio() {
+
+	public String diretorio() {
 		File raiz = new File("C:/");
-		String diretorio = "";	
-		
+		String diretorio = "";
+
 		if (raiz.exists()) {
 			diretorio = "C:/application/portal/";
-		}else{
+		} else {
 			diretorio = "/home/application/portal/";
 		}
-		
+
 		File makeDireorio = new File(diretorio);
-		
-		if(!makeDireorio.exists()) {
+
+		if (!makeDireorio.exists()) {
 			makeDireorio.mkdir();
-		}		
+		}
 		return diretorio;
 	}
 }
