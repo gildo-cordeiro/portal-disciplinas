@@ -75,6 +75,9 @@ public class Usuario implements Serializable{
 	@JoinColumn(name = "usuario_professor")
 	private UsuarioProfessor professor;
 	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "usuario")
+	private Categoria categoria;
 	
 	public UsuarioAluno getAluno() {
 		return aluno;

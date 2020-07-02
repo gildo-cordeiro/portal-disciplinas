@@ -40,7 +40,7 @@ public class DisciplinaService {
 		if (raiz.exists()) {
 			diretorio = "C:/application/portal/";
 		} else {
-			diretorio = "/home/application/portal/";
+			diretorio = "~/application/portal/";
 		}
 
 		File makeDireorio = new File(diretorio);

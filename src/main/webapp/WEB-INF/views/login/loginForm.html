@@ -1,44 +1,36 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <title>Entrar</title>
-  <link rel="stylesheet" href="../../../resources/assets/bootstrap/css/bootstrap.min.css" 
-    th:href="@{/resources/assets/bootstrap/css/bootstrap.min.css}">    
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="../../../resources/assets/css/login.css" 
-    th:href="@{/resources/assets/css/login.css}">  
-    <link rel="stylesheet" href="../../../resources/assets/css/footer.css" 
-    th:href="@{/resources/assets/css/footer.css}">    
+<link rel="stylesheet"
+	href="../../../resources/assets/bootstrap/css/bootstrap.min.css"
+	th:href="@{/resources/assets/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="../../../resources/assets/css/login.css"
+	th:href="@{/resources/assets/css/login.css}">
 </head>
 <body>
-	<div class="col-md-12 col-sm-12">
-		<div class="login-wrap">
-			<div class="login-html">
+	<div class="container">
+		<section class="form-section">
+			<div class="form-wrapper col-md-4">
 				<form th:action="@{/login}" method="post">
-	  				<div class="row">
-		  				<div class="col-md-12">
-			  				<div class="form-group">
-							    <label for="username">Username</label>
-							    <input type="text" class="form-control" name="username" id="username" aria-describedby="emailHelp" required="required">
-						  	</div>
-						  	<div class="form-group">
-						    	<label for="password">Senha</label>
-						    	<input type="password" class="form-control" name="password" id="senha" required="required">
-						  	</div>
-		  				</div>
-	  				</div>
-				  	<div class="row mt-3">
-				  		<div class="col-md-6">
-				  			<button type="submit" class="btn btn-success btn-lg btn-block" >Entrar</button>
-				  		</div>
-				  		<div class="col-md-6">
-				  			<a  th:href="@{/registrar}" class="btn btn-secondary btn-lg btn-block">Criar Conta</a>
-							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-				  		</div>
-				  	</div>
+					<div class="input-block">
+						<label for="login-email">Username</label> <input type="text"
+							name="username" id="username" />
+					</div>
+					<div class="input-block form-group">
+						<label for="login-password">Senha</label> <input type="password"
+							name="password" id="senha" class="form-control" />
+					</div>
+					<button type="submit" class="btn-login">Login</button>
+					<a th:href="@{/registrar}" type="button" class="btn-sigin">Cadastre-se</a>
 				</form>
 			</div>
-		</div>
+		</section>
 	</div>
+	<ul class="squares"></ul>
+	<script th:src="@{/resources/assets/js/login.js}"></script>
 </body>
 </html>
