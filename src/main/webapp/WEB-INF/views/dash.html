@@ -24,16 +24,22 @@
 		<!-- Sidebar -->
 		<div class="bg-light border-right" id="sidebar-wrapper">
 			<div class="sidebar-heading">Nevegar pela pagina</div>
+			<div th:each="perfil : ${#authentication.getPrincipal().getPerfis()}">
+				<div th:each="Opt : ${T(com.baeldung.thymeleaf.model.Perfil).values()}">
+					<span th:text="${Opt}"></span>
+				</div>
+			</div>
 			<div class="list-group list-group-flush">
 				<a href="#" class="list-group-item list-group-item-action bg-light">Disciplinas</a>
-				<a href="#" class="list-group-item list-group-item-action bg-light">Professores</a>
-				<a href="#" class="list-group-item list-group-item-action bg-light">Evento
-					- I</a> <a href="#"
-					class="list-group-item list-group-item-action bg-light">Evento
-					- II</a> <a href="#"
-					class="list-group-item list-group-item-action bg-light">Evento
-					- III</a> <a href="#"
-					class="list-group-item list-group-item-action bg-light">Status</a>
+				<a href="#" class="list-group-item list-group-item-action bg-light" sec:authorize="hasAnyRole('ROLE_PROFESSOR','ROLE_ALUNO')">Professores</a>
+				<ul class="list-group-item list-group-item-action bg-light" sec:authorize="hasRole('ROLE_ADMIN')">
+					<li class="list-group-item list-group-item-action bg-light">Novo professor</li>
+					<li class="list-group-item list-group-item-action bg-light">Listar professores</li>
+				</ul>
+				<a href="#" class="list-group-item list-group-item-action bg-light">Evento - I</a> 
+				<a href="#"	class="list-group-item list-group-item-action bg-light">Evento - II</a> 
+				<a href="#"	class="list-group-item list-group-item-action bg-light">Evento - III</a> 
+				<a href="#"	class="list-group-item list-group-item-action bg-light">Status</a>
 			</div>
 		</div>
 		<!-- /#sidebar-wrapper -->

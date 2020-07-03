@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gildocordeiro.portal.domain.Usuario;
+import com.gildocordeiro.portal.domain.enums.Perfil;
 import com.gildocordeiro.portal.dto.UsuarioDTO;
 import com.gildocordeiro.portal.security.MyUserDetails;
 import com.gildocordeiro.portal.service.UsuarioService;
@@ -64,6 +65,9 @@ public class LoginController {
 	public ModelAndView autenticaUsuario() {	
 		authentication =  (Authentication) SecurityContextHolder.getContext().getAuthentication();
 		model = new ModelAndView("redirect:"+ ((MyUserDetails)authentication.getPrincipal()).getUsername());
+//		for (Perfil a : ((MyUserDetails)authentication.getPrincipal()).getPerfis()) {
+//			a.getDescricao();
+//		}
 		return model;
 	}
 	

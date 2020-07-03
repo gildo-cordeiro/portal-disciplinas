@@ -20,6 +20,7 @@ public class MyUserDetails implements UserDetails{
 	private boolean ativo;
 	private String path_image;
 	private Collection<GrantedAuthority> permissoes = new ArrayList<>();
+	private Set<Perfil> perfil;
 	
 	public MyUserDetails(String nome, String login,	String senha, boolean ativo, Set<Perfil> perfis, String path_image) {
 		this.nome = nome;
@@ -28,6 +29,7 @@ public class MyUserDetails implements UserDetails{
 		this.ativo = ativo;
 		this.path_image = path_image;
 		this.permissoes = perfis.stream().map(p -> new SimpleGrantedAuthority(p.getDescricao())).collect(Collectors.toSet());
+		this.perfil = perfis;
 	}
 
 	public String getNome() {
@@ -36,6 +38,9 @@ public class MyUserDetails implements UserDetails{
 	
 	public String getPath_image() {
 		return path_image;
+	}
+	public Set<Perfil> getPerfis(){
+		return perfil;
 	}
 
 	@Override
