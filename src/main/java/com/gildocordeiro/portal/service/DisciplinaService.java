@@ -1,14 +1,10 @@
 package com.gildocordeiro.portal.service;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.util.List;
 
-import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.gildocordeiro.portal.domain.Disciplina;
 import com.gildocordeiro.portal.repository.DisciplinaRepository;
@@ -19,19 +15,14 @@ public class DisciplinaService {
 	@Autowired
 	private DisciplinaRepository repository;
 
-	public void salvar(Disciplina disciplina, MultipartFile MultFile, String Path) throws IOException {
-		if (MultFile != null && !MultFile.isEmpty()) {
-			try {
-				String d = diretorio();
-				FileOutputStream out = new FileOutputStream(d+MultFile.getOriginalFilename());
-				out.close();
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
+	public void salvar(Disciplina disciplina){
+		repository.save(disciplina);
 	}
+	
+	public List<Disciplina> findAll(){
+		return repository.findAll();
+	}
+	
 
 	public String diretorio() {
 		File raiz = new File("C:/");

@@ -6,7 +6,22 @@ public class DisciplinaDTO {
 	private String nome;
 	private String turma;
 	private String descricao;
+	private Integer semestre;
+	private Integer user;
 	
+	
+	public Integer getSemestre() {
+		return semestre;
+	}
+	public void setSemestre(Integer semestre) {
+		this.semestre = semestre;
+	}
+	public Integer getUser() {
+		return user;
+	}
+	public void setUser(Integer user) {
+		this.user = user;
+	}
 	public String getCodigo() {
 		return codigo;
 	}

@@ -1,57 +1,61 @@
 package com.gildocordeiro.portal.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Disciplina implements Serializable{
+public class Disciplina implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(unique = true, nullable = false)
-	private String codigo;	
+	private String codigo;
 	private String nome;
 	private String descricao;
+	private Integer semestre;
+
+	@OneToMany(mappedBy = "disciplina")
+	private List<Historico> historicos;
+
+	@OneToMany(mappedBy = "disciplina")
+	private List<Turma> turmas;
+
+	@ManyToMany
+	@JoinTable(name = "disciplina_professor", joinColumns = @JoinColumn(name = "userprof_id"), inverseJoinColumns = @JoinColumn(name = "disciplina_id"))
+	private Set<Usuario> professores;
 
 	public Disciplina() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Disciplina(String codigo, String nome, String descricao, Multimidia multimidia) {
+
+	public Disciplina(String codigo, String nome, String descricao, Integer semestre, Set<Usuario> lista) {
 		this.codigo = codigo;
 		this.nome = nome;
 		this.descricao = descricao;
-		this.multimidias.add(multimidia);
+		this.semestre = semestre;
+		this.professores = lista;
 	}
 	
-	
-	@OneToMany(mappedBy = "disciplina")
-	private List<Historico> historicos;
-	
-	@OneToMany(mappedBy = "disciplina")
-	private List<Turma> turmas;
-	
-	@OneToMany(mappedBy = "disciplina")
-	private List<Multimidia> multimidias = new ArrayList<Multimidia>();
-	
-	
-	public List<Multimidia> getMultimidias() {
-		return multimidias;
+	public Set<Usuario> getProfessores() {
+		return professores;
 	}
 
-	public void setMultimidias(List<Multimidia> multimidias) {
-		this.multimidias = multimidias;
+	public void setProfessores(Set<Usuario> professores) {
+		this.professores.addAll(professores);
 	}
 
 	public List<Turma> getTurmas() {
@@ -101,6 +105,13 @@ public class Disciplina implements Serializable{
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
-	
-	
+
+	public Integer getSemestre() {
+		return semestre;
+	}
+
+	public void setSemestre(Integer semestre) {
+		this.semestre = semestre;
+	}
+
 }

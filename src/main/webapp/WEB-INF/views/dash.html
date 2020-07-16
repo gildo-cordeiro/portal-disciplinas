@@ -11,6 +11,8 @@
 	th:href="@{/resources/assets/css/footer.css}">
 <link th:href="@{/resources/assets/css/simple-sidebar.css}"
 	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <style type="text/css">
 .dropdown-toggle::after {
 	content: none !important;
@@ -23,48 +25,48 @@
 
 		<!-- Sidebar -->
 		<div class="bg-light border-right" id="sidebar-wrapper">
-			<div class="sidebar-heading">Nevegar pela pagina</div>
+			<div class="sidebar-heading"></div>
 			<div th:each="authority : ${#authentication.getAuthorities()}"
 				th:if="${authority.getAuthority().startsWith('ROLE_')}"
 				class="container">
 				<div class="col-md-12">
 					<div class="row">
-						<small class="text-muted" style="margin: auto 5px;"
-							th:text="${authority.getAuthority().replaceFirst('ROLE_', '')}"></small>
+						<small class="text-muted" style="margin: 9.5px 5px;"
+							th:text="${authority.getAuthority().replaceFirst('ROLE_', 'Titulo: ')}"></small>
 					</div>
 				</div>
 			</div>
 			<div class="list-group list-group-flush">
-				<a href="#" class="list-group-item list-group-item-action bg-light">Disciplinas</a>
+				<a href="#" class="list-group-item list-group-item-action bg-light"
+					sec:authorize="hasAnyRole('ROLE_PROFESSOR','ROLE_ALUNO')">Disciplinas</a>
+					
+				<ul class="list-unstyled components" style="margin-bottom: 0;"
+					sec:authorize="hasRole('ROLE_ADM')">
+					<li class="list-group-item list-group-item-action bg-light active"><a
+						href="#submenu" data-toggle="collapse" aria-expanded="false"
+						class="dropdown-toggle">Disciplinas</a>
+						<ul class="collapse list-unstyled" id="submenu">
+							<li class="list-group-item list-group-item-action bg-light"><a
+								th:href="@{/disciplinas/nova-disciplina}">Novo disciplina</a></li>
+							<li class="list-group-item list-group-item-action bg-light"><a
+								th:href="@{/disciplinas}">Consultar disciplinas</a></li>
+						</ul></li>
+				</ul>
 				<a href="#" class="list-group-item list-group-item-action bg-light"
 					sec:authorize="hasAnyRole('ROLE_PROFESSOR','ROLE_ALUNO')">Professores</a>
-				
-				<ul class="list-unstyled components">
-            <p>Dummy Heading</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">Home 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
-                    </li>
-                </ul>
-            </li>
-            </ul
-				<div class="dropdown" sec:authorize="hasRole('ROLE_ADM')">
-					<button type="button" class="btn btn-primary dropdown-toggle"
-						data-toggle="dropdown">Dropdown button</button>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">Link 1</a> <a
-							class="dropdown-item" href="#">Link 2</a> <a
-							class="dropdown-item" href="#">Link 3</a>
-					</div>
-				</div>
+
+				<ul class="list-unstyled components" style="margin-bottom: 0;"
+					sec:authorize="hasRole('ROLE_ADM')">
+					<li class="list-group-item list-group-item-action bg-light active"><a
+						href="#submenu1" data-toggle="collapse" aria-expanded="false"
+						class="dropdown-toggle">Professores</a>
+						<ul class="collapse list-unstyled" id="submenu1">
+							<li class="list-group-item list-group-item-action bg-light"><a
+								href="#">Novo professor</a></li>
+							<li class="list-group-item list-group-item-action bg-light"><a
+								href="#">Consultar professores</a></li>
+						</ul></li>
+				</ul>
 				<a href="#" class="list-group-item list-group-item-action bg-light">Evento
 					- I</a> <a href="#"
 					class="list-group-item list-group-item-action bg-light">Evento
@@ -81,7 +83,10 @@
 
 			<nav
 				class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-				<button class="btn btn-primary" id="menu-toggle">OPÇÕES</button>
+				<button class="btn btn-primary" id="menu-toggle"
+					style="padding-bottom: 0px;">
+					<span class="material-icons"> menu </span>
+				</button>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent"

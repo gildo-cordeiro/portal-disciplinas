@@ -23,6 +23,7 @@ public class UsuarioProfessor  implements Serializable{
 	@OneToOne(mappedBy = "professor")
 	private Usuario usuario;
 	
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}

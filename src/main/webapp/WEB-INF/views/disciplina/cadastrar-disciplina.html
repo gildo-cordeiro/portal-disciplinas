@@ -17,8 +17,10 @@
 		</div>
 		<p align="center">This is some text.</p>
 		<hr>
-		<form th:action="@{/disciplina/nova-disciplina/salvar}" th:object="${disciplinaDTO}" method="post" class="needs-validation mt-5"
-			novalidate="novalidate" enctype="multipart/form-data">
+		<form th:action="@{/disciplina/nova-disciplina/salvar}"
+			th:object="${disciplinaDTO}" method="post"
+			class="needs-validation mt-5" novalidate="novalidate"
+			enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-md-6 col-sm-12">
 					<div class="form-group">
@@ -49,30 +51,67 @@
 				</div>
 				<div class="col-md-6 col-sm-12">
 					<div class="form-group mb-3" style="margin-top: 32px !important;">
-						<select class="custom-select" id="turmas" required="required">
-							<option value="">Selecionar turma</option>
-							<option value="2">2</option>
+						<select class="custom-select" id="turmas" required="required"
+							th:field="*{semestre}">
+							<option value="">Selecionar o semestre</option>
+							<option value="1">1º Semestre</option>
+							<option value="2">2º Semestre</option>
 						</select>
 						<div class="invalid-feedback">Por favor, escolha uma opção.
 						</div>
 					</div>
-					<div class="custom-file" style="margin-top: 32px !important;">
-						<input type="file" class="custom-file-input" id="file"
-							required="required" name="file"> <label class="custom-file-label"
-							for="file">Escolher thumb da disciplina...</label>
-						<div class="invalid-feedback">Valor invalido.</div>
+					<div class="form-group mb-3" style="margin-top: 32px !important;">
+						<select class="custom-select" id="turmas" required="required"
+							th:field="*{user}">
+							<option value="">Selecionar o professor</option>
+							<option th:each="p : ${professores}" th:value="${p.id}"
+								th:if="${p.perfis[0].descricao == 'ROLE_PROFESSOR'}"
+								th:text="${p.nome}"></option>
+						</select>
 					</div>
+					<div class="form-group mb-3" style="margin-top: 32px !important;">
+					<select class="custom-select" id="turmas" required="required"
+						th:field="*{user}" name="imagem" onchange="previewImagem()">
+						<option value="">Selecionar uma imagem</option>
+						<option value="/resources/imagens/disicplinas/cardbrandS.jpg">Ciências
+							Exatas</option>
+						<option value="/resources/imagens/disicplinas/ciencia.jpg">Ciências
+							Humanas</option>
+					</select>
+					<div class="invalid-feedback">Por favor, escolha uma opção.</div>
+					<img style="width: 150px; height: 150px;" th:src="">
 				</div>
-				<div class="col-md-12 col-sm-12 mt-4" align="center">
-					<button type="submit"
-						class="btn btn-outline-success col-md-3 col-sm-12"
-						style="height: 38px;">
-						<span class="material-icons">add_circle_outline</span>
-					</button>
 				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 mt-4" align="center">
+				<button type="submit"
+					class="btn btn-outline-success col-md-3 col-sm-12"
+					style="height: 38px;">
+					<span class="material-icons">add_circle_outline</span>
+				</button>
 			</div>
 		</form>
 	</div>
+	<script type="text/javascript">
+		function previewImagem() {
+			var select = document.querySelector('select');
+			var option = select.children[select.selectedIndex];
+			var texto = option.textContent;
+			var preview = document.querySelector('img');
+
+			var reader = new FileReader();
+
+			reader.onloadend = function() {
+				preview.src = reader.result;
+			}
+
+			if (imagem) {
+				reader.readAsDataURL(imagem);
+			} else {
+				preview.src = "";
+			}
+		}
+	</script>
 	<script th:block layout:fragment="script"
 		src="../../../resources/assets/js/validacao-forms.js"
 		th:src="@{/resources/assets/js/validacao-forms.js}"></script>

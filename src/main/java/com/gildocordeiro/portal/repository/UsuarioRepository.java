@@ -1,5 +1,6 @@
 package com.gildocordeiro.portal.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,6 +18,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	
 	@Query(value="select u from Usuario u where u.email = ?1")
 	public Optional<Usuario> findByEmail(String email);
+	
+	@Query(value="select u from Usuario u")
+	public List<Usuario> findTeacher();
 	
 	//s@Query(value="SELECT p.perfil FROM usuario_permissoes up WHERE u.email = ?1", nativeQuery = true)
 	//public List<Perfil> findPermissoes(String email);

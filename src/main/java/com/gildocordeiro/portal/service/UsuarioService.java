@@ -1,5 +1,6 @@
 package com.gildocordeiro.portal.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,15 @@ public class UsuarioService{
 	
 	public Usuario converteFromUser(UsuarioDTO form) {
 		Usuario user = new Usuario(form.getNome(), form.getEmail(), form.getUserName(), 
-				form.getSenha(), true, Perfil.getPerfil(form.getPerfil()), "/resources/imagens/perfil-image/default.jpg");
+				form.getSenha(), true, Perfil.getPerfil(form.getPerfil()), "/resources/imagens/perfil-image/default.jpg", null, null);
 		return user;
+	}
+	
+	public List<Usuario> findTeacher(){
+		return usuarioRepository.findTeacher();
+	}
+	
+	public Optional<Usuario> findById(Integer id) {
+		return usuarioRepository.findById(id);
 	}
 }

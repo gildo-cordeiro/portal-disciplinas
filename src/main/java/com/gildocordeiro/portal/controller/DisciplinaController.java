@@ -1,6 +1,8 @@
 package com.gildocordeiro.portal.controller;
 
-import java.io.IOException;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 
@@ -11,15 +13,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gildocordeiro.portal.domain.Disciplina;
-import com.gildocordeiro.portal.domain.Multimidia;
-import com.gildocordeiro.portal.domain.enums.TipoMultimidia;
+import com.gildocordeiro.portal.domain.Usuario;
 import com.gildocordeiro.portal.dto.DisciplinaDTO;
 import com.gildocordeiro.portal.service.DisciplinaService;
+import com.gildocordeiro.portal.service.UsuarioService;
 
 @Controller
 @EnableAutoConfiguration
@@ -30,14 +30,16 @@ public class DisciplinaController {
 	@Autowired
 	private DisciplinaService service;
 	
+	@Autowired
+	private UsuarioService usuarioService;
+	
 	@Autowired protected ServletContext servletContext;
-	
-	
 
+	
 	@GetMapping(value = "/disciplinas")
 	public ModelAndView recuperarDisciplinas() {
 		model = new ModelAndView("disciplina/disciplinas.html");
-//		System.out.println("servletcontext: "+servletContext.getRealPath("/webapp/resources/imagens/thumb/"));
+		model.addObject("disciplinas", service.findAll());
 		return model;
 	}
 
@@ -45,26 +47,24 @@ public class DisciplinaController {
 	public ModelAndView cadastrarDisciplinasView() {
 		model = new ModelAndView("disciplina/cadastrar-disciplina.html");
 		model.addObject("disciplinaDTO", new DisciplinaDTO());
+		model.addObject("professores", usuarioService.findTeacher());
 		return model;
 	}
 
-	@PostMapping(value = "/disciplina/nova-disciplina/salvar", consumes = "multipart/form-data")
-	public void salvarDisciplina(@ModelAttribute(value = "disciplinaDTO") DisciplinaDTO disciplinaDTO,
-			@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
+	@PostMapping(value = "/disciplina/nova-disciplina/salvar")
+	public ModelAndView salvarDisciplina(@ModelAttribute(value = "disciplinaDTO") DisciplinaDTO disciplinaDTO, @RequestParam("user") Usuario user) {
+		
+		Set<Usuario> lista = new HashSet<>();
+		
+		Optional<Usuario> u = usuarioService.findById(disciplinaDTO.getUser());
+		
+		lista.add(u.get());
 		
 		Disciplina disciplina = new Disciplina(disciplinaDTO.getCodigo(), disciplinaDTO.getNome(),
-				disciplinaDTO.getDescricao(), converteFromMultipart(file));
+				disciplinaDTO.getDescricao(),disciplinaDTO.getSemestre(), lista);
 		
-		try {
-			service.salvar(disciplina, file, servletContext.getRealPath("/")+"resource/imagens/");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	public Multimidia converteFromMultipart(MultipartFile file) {
-		Multimidia m = new Multimidia(file.getOriginalFilename(), "", TipoMultimidia.IMG.getCodigo(), true);
-		return m;
+		service.salvar(disciplina);
+		model = new ModelAndView("redirect:/disciplinas/nova-disciplina");
+		return model;
 	}
 }
