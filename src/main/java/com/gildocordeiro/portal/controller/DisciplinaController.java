@@ -12,7 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gildocordeiro.portal.domain.Disciplina;
@@ -33,8 +32,8 @@ public class DisciplinaController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@Autowired protected ServletContext servletContext;
-
+	@Autowired 
+	protected ServletContext servletContext;
 	
 	@GetMapping(value = "/disciplinas")
 	public ModelAndView recuperarDisciplinas() {
@@ -52,16 +51,16 @@ public class DisciplinaController {
 	}
 
 	@PostMapping(value = "/disciplina/nova-disciplina/salvar")
-	public ModelAndView salvarDisciplina(@ModelAttribute(value = "disciplinaDTO") DisciplinaDTO disciplinaDTO, @RequestParam("user") Usuario user) {
+	public ModelAndView salvarDisciplina(@ModelAttribute(value = "disciplinaDTO") DisciplinaDTO disciplinaDTO) {
 		
-		Set<Usuario> lista = new HashSet<>();
+		Set<Usuario> listaProfessoresDisciplinas = new HashSet<>();
 		
-		Optional<Usuario> u = usuarioService.findById(disciplinaDTO.getUser());
+		Optional<Usuario> usuarioId = usuarioService.findById(disciplinaDTO.getUser());
 		
-		lista.add(u.get());
+		listaProfessoresDisciplinas.add(usuarioId.get());
 		
 		Disciplina disciplina = new Disciplina(disciplinaDTO.getCodigo(), disciplinaDTO.getNome(),
-				disciplinaDTO.getDescricao(),disciplinaDTO.getSemestre(), lista);
+				disciplinaDTO.getDescricao(),disciplinaDTO.getSemestre(), listaProfessoresDisciplinas, disciplinaDTO.getPathImage());
 		
 		service.salvar(disciplina);
 		model = new ModelAndView("redirect:/disciplinas/nova-disciplina");

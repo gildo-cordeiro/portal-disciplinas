@@ -27,6 +27,7 @@ public class Disciplina implements Serializable {
 	private String nome;
 	private String descricao;
 	private Integer semestre;
+	private String pathImage;
 
 	@OneToMany(mappedBy = "disciplina")
 	private List<Historico> historicos;
@@ -38,16 +39,17 @@ public class Disciplina implements Serializable {
 	@JoinTable(name = "disciplina_professor", joinColumns = @JoinColumn(name = "userprof_id"), inverseJoinColumns = @JoinColumn(name = "disciplina_id"))
 	private Set<Usuario> professores;
 
-	public Disciplina() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public Disciplina(String codigo, String nome, String descricao, Integer semestre, Set<Usuario> lista) {
+	public Disciplina(String codigo, String nome, String descricao, Integer semestre, Set<Usuario> lista, String pathImage) {
 		this.codigo = codigo;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.semestre = semestre;
 		this.professores = lista;
+		this.pathImage = pathImage;
+	}
+	
+	public Disciplina() {
+		
 	}
 	
 	public Set<Usuario> getProfessores() {
@@ -112,6 +114,14 @@ public class Disciplina implements Serializable {
 
 	public void setSemestre(Integer semestre) {
 		this.semestre = semestre;
+	}
+
+	public String getPathImage() {
+		return pathImage;
+	}
+
+	public void setPathImage(String pathImage) {
+		this.pathImage = pathImage;
 	}
 
 }

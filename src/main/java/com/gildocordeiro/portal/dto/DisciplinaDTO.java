@@ -7,7 +7,8 @@ public class DisciplinaDTO {
 	private String turma;
 	private String descricao;
 	private Integer semestre;
-	private Integer user;
+	private Integer user;//porfessor da disciplina
+	private String pathImage;
 	
 	
 	public Integer getSemestre() {
@@ -45,5 +46,11 @@ public class DisciplinaDTO {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	public String getPathImage() {
+		return pathImage;
+	}
+	public void setPathImage(String pathImage) {
+		this.pathImage = pathImage;
 	}
 }

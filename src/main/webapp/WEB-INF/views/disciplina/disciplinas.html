@@ -11,7 +11,8 @@
 	th:href="@{/resources/assets/css/disciplinas.css}">
 </head>
 <body>
-	<section class="section section-md bg-default" layout:fragment="content">
+	<section class="section section-md bg-default"
+		layout:fragment="content">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5 offset-md-7">
@@ -21,13 +22,35 @@
 								class="form-control" id="search" aria-describedby="search"
 								placeholder="Ex.: FMC - I">
 						</div>
-						<button type="submit" class="btn btn-outline-success col-md-2 col-sm-2 offset-md-10" style="height: 38px">
+						<button type="submit"
+							class="btn btn-outline-success col-md-2 col-sm-2 offset-md-10"
+							style="height: 38px">
 							<span class="material-icons">search</span>
 						</button>
 					</form>
 				</div>
 				<div class="col-md-12 mt-5">
-					<div class="row">
+					<div class="row" th:if="${disciplinas != null}">
+						<div class="col-md-4" th:each="disciplina : ${disciplinas}">
+							<div class="card mb-3">
+								<img class="card-img-top"
+									alt="Card image cap" th:src="@{${disciplina.pathImage}}">
+								<div class="card-body">
+									<h5 class="card-title" th:text="${disciplina.nome}"></h5>
+									<p class="card-text">
+										<b>Código: </b><span th:text="${disciplina.codigo}"></span>
+									</p>
+									<p class="card-text">
+										<b>Professor: </b><span th:each="prof : ${disciplina.professores}" th:text="${prof.nome}"></span>
+									</p>
+									<p class="card-text">
+										<b>Semestre: </b><span th:text="${disciplina.semestre}"></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" th:if="${disciplinas== null}">
 						<div class="col-md-4">
 							<div class="card mb-3">
 								<img class="card-img-top"
