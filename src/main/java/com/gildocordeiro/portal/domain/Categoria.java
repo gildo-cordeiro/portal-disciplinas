@@ -8,10 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+//Criar nova tabela
 @Entity
+
+//Necessario para comunicar com o banco
 public class Categoria implements Serializable{
 	private static final long serialVersionUID = 1L;
-	
+
+	//Anotação de chave primaria e autoincrement
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -23,6 +27,7 @@ public class Categoria implements Serializable{
 	private Integer proatividade;
 	private Integer trabalho_equipe;
 	
+	//Mapeamento banco de dados 1-1
 	@OneToOne(mappedBy = "categoria")
 	private Usuario usuario;
 	
